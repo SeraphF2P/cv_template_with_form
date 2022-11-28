@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "lib": ["dom", "es2017","ES2021"],
+    "sourceMap": false,
+    // "outDir": "dist",
+    // "rootDir": "src",
+    "strict": true,
+    // "types": ["node"],
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "removeComments": true
+  }
+}

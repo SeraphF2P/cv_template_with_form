@@ -1,0 +1,416 @@
+* {
+  font-family: serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: 0;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.form_section .log_in_section .modal-dialog-centered {
+  display: flex;
+  justify-content: center;
+}
+.form_section .log_in_section .modal-dialog-centered .modal-content {
+  width: 300px;
+  border: 1px solid;
+  border-radius: 10px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.form_section .log_in_section .modal-dialog-centered .modal-content .auto_signup_option .fa-brands {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 3rem;
+}
+.form_section .log_in_section .modal-dialog-centered .modal-content .divider {
+  position: relative;
+  width: 230px;
+  display: flex;
+  justify-content: center;
+}
+.form_section .log_in_section .modal-dialog-centered .modal-content .divider::after, .form_section .log_in_section .modal-dialog-centered .modal-content .divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: 40%;
+  background: #e3e3e3;
+}
+.form_section .log_in_section .modal-dialog-centered .modal-content .divider::before {
+  left: 0;
+}
+.form_section .log_in_section .modal-dialog-centered .modal-content .divider::after {
+  right: 0;
+}
+.form_section .log_in_section .modal-dialog-centered .modal-content form {
+  width: 100%;
+}
+.form_section .log_in_section .modal-dialog-centered .modal-content form div {
+  font-size: 0.8rem;
+  margin-bottom: 16px;
+}
+.form_section .log_in_section .modal-dialog-centered .modal-content form div a {
+  color: blue;
+  font-size: 0.9rem;
+}
+.form_section .log_in_section .modal-dialog-centered .modal-content .row:last-child {
+  display: flex;
+  justify-content: space-around;
+}
+.form_section .log_in_section .modal-dialog-centered .modal-content .row:last-child .btn {
+  width: 100px;
+}
+.form_section .sign_up_section .modal-dialog-centered {
+  display: flex;
+  justify-content: center;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content {
+  width: 300px;
+  height: 430px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 1rem;
+  left: 50px;
+  padding: 0;
+  width: 200px;
+  height: 24px;
+  margin: 1rem auto;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffd279;
+  z-index: 1;
+  outline: 2px solid #d6110a;
+  font-weight: bolder;
+  transition: 5s;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar span.confirmed {
+  -webkit-animation: confirmed 1s forwards;
+          animation: confirmed 1s forwards;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar .line {
+  display: block;
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 200px;
+  background: #d6110a;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .form_btns {
+  width: 300px;
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .form_btns .btn {
+  width: 100px;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .modal-body {
+  position: relative;
+  width: 100%;
+  display: flex;
+  padding-top: 4rem;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .modal-body .steps_bodys {
+  display: flex;
+  position: absolute;
+  left: 0;
+  transition: transform 0.4s linear;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .modal-body .steps_bodys .step_body {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-inline: 25px;
+  gap: 2rem;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .modal-body .steps_bodys .step_body input {
+  position: relative;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .modal-body .steps_bodys .step_body.num_4 h1 {
+  text-align: center;
+  width: 100%;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .modal-body .steps_bodys .step_body .input_error_message {
+  display: none;
+  color: #cf3d02;
+  position: absolute;
+  left: 0;
+  font-size: 0.75rem;
+  width: 100%;
+  height: 0.75rem;
+}
+
+.btn_close {
+  background: white;
+  border: 2px solid #e3e3e3;
+  color: #171120;
+}
+
+input:focus:invalid {
+  border: 1px solid #cf3d02;
+  box-shadow: 0 0 8px 3px rgba(207, 61, 2, 0.8);
+}
+input:focus:invalid + p.input_error_message {
+  display: block !important;
+}
+
+@-webkit-keyframes confirmed {
+  to {
+    background-color: #cf3d02;
+  }
+}
+
+@keyframes confirmed {
+  to {
+    background-color: #cf3d02;
+  }
+}
+.second_page {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.second_page .my_container {
+  width: min(768px, 100%);
+  height: 100%;
+  margin-inline: auto;
+  background-color: hsla(248deg, 92%, 95%, 0.224);
+  box-shadow: 0 0 1rem 3px rgba(0, 0, 0, 0.1), 0 0 1rem -3px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+.second_page .my_container section {
+  padding: 1rem;
+  border-inline: 1px solid transparent;
+  height: 300px;
+}
+.second_page .my_container section:not(:first-child) {
+  border-top: 1px solid #ece9fe;
+}
+.second_page .my_container .section_1 {
+  display: flex;
+}
+.second_page .my_container .section_1 .img_border {
+  width: 100%;
+  max-width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+.second_page .my_container .section_1 .img_border img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.second_page .my_container .section_1 .aside {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.second_page .my_container .section_2 {
+  text-align: center;
+}
+.second_page .my_container .section_3 {
+  height: 410px;
+}
+.second_page .my_container .section_3 h2 {
+  text-align: center;
+}
+.second_page .my_container .section_3 .skills {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+}
+.second_page .my_container .section_3 .skills .skill {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  padding: 20px;
+  background-color: #ece9fe;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+.second_page .my_container .section_3 .skills .skill:hover circle {
+  stroke-dashoffset: 0;
+}
+.second_page .my_container .section_3 .skills .skill .inner {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2), inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7), -0.5px -0.5px 0px white, 0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+}
+.second_page .my_container .section_3 .skills .skill svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.second_page .my_container .section_3 .skills .skill svg circle {
+  fill: none;
+  stroke: url(#GradientColor);
+  stroke-width: 20px;
+  stroke-dasharray: 472;
+  stroke-dashoffset: 472;
+  transition: 2s linear;
+  -webkit-animation: anim_1 2s linear forwards;
+          animation: anim_1 2s linear forwards;
+}
+
+@-webkit-keyframes anim_1 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes anim_1 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+.bg_animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ece9fe;
+}
+.bg_animation .shape {
+  position: absolute;
+  z-index: -1;
+  transition: transform 60s linear, rotate 30s linear;
+  border: 1px solid;
+}
+.bg_animation .shape.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #fe9ecc;
+}
+.bg_animation .shape.square {
+  width: 100px;
+  height: 100px;
+  background-color: #ffd0dc;
+}
+.bg_animation .shape.triangle {
+  width: 150px;
+  height: 100px;
+  background-color: #ffca3c;
+  -webkit-clip-path: polygon(50% 0, 100% 100%, 0 100%);
+          clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.bg_animation .shape.pentagon {
+  width: 100px;
+  height: 100px;
+  -webkit-clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+          clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  background-color: #866ee0;
+}
+
+* {
+  font-family: serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+.first_page {
+  background-color: #ece9fe;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.first_page .landing {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 1rem 3px rgba(0, 0, 0, 0.1), 0 0 1rem -3px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  width: 300px;
+  height: 350px;
+  gap: 2rem;
+  margin-inline: auto;
+  margin-top: 3rem;
+  padding: 2rem;
+}
+.first_page .landing .btn {
+  display: block;
+  background: linear-gradient(to top left, #c0b6fc, #ece9fe);
+  border: none;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+.first_page .landing .btn:hover {
+  background: linear-gradient(to top left, #6c54f8, #c0b6fc);
+}
+.first_page .landing .profile {
+  background-color: #ece9fe;
+  border-radius: 50%;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+.first_page .landing .profile img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.btn-secondary {
+  border-width: 2px solid;
+}
+
+html {
+  background-color: transparent !important;
+}/*# sourceMappingURL=style.css.map */

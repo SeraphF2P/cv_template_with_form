@@ -1,0 +1,36 @@
+.bg_animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ece9fe;
+  .shape {
+    position: absolute;
+    z-index: -1;
+    transition: transform 60s linear, rotate 30s linear;
+    border: 1px solid;
+    &.circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #fe9ecc;
+    }
+    &.square {
+      width: 100px;
+      height: 100px;
+      background-color: #ffd0dc;
+    }
+    &.triangle {
+      width: 150px;
+      height: 100px;
+      background-color: #ffca3c;
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    }
+    &.pentagon {
+      width: 100px;
+      height: 100px;
+      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      background-color: #866ee0;
+    }
+  }
+}
