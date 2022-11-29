@@ -91,6 +91,7 @@ const log_in_section = document.querySelector('.log_in_section');
 const user_name_email = document.getElementById('log_in_user_name_email');
 const Password_log_in_password = document.getElementById('Password_log_in_password');
 const submit_log_btn = log_in_section === null || log_in_section === void 0 ? void 0 : log_in_section.querySelector('[value="Log in"]');
+const log_in_form = log_in_section === null || log_in_section === void 0 ? void 0 : log_in_section.querySelector('form');
 const close_btn = log_in_section === null || log_in_section === void 0 ? void 0 : log_in_section.querySelector('.btn_close');
 const first_page = document.querySelector('.first_page');
 const second_page = document.querySelector('.second_page');
@@ -100,13 +101,13 @@ submit_log_btn === null || submit_log_btn === void 0 ? void 0 : submit_log_btn.a
         if (users[i].name == user_name_email.value || users[i].email == user_name_email.value) {
             if (users[i].password == Password_log_in_password.value) {
                 close_btn === null || close_btn === void 0 ? void 0 : close_btn.click();
-                first_page.style.display = 'none';
-                second_page.style.display = 'block';
                 moving();
-                setInterval(() => {
-                    moving();
-                }, 60000);
             }
+            log_in_form === null || log_in_form === void 0 ? void 0 : log_in_form.submit();
         }
     }
+});
+const theme = document.querySelector('.theme');
+theme === null || theme === void 0 ? void 0 : theme.addEventListener('click', () => {
+    theme.classList.add('theme_2');
 });

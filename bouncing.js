@@ -1,8 +1,8 @@
 "use strict";
 const bg_animation = document.querySelector('.bg_animation');
-const shapes = ['circle', 'square', 'triangle', 'pentagon'];
+const shapes = ['triangle', 'pentagon', 'empty_circle', 'empty_square'];
 let shapesCollection = [];
-function createshape() {
+function create_shape() {
     let shape = document.createElement('div');
     let random = Math.floor(Math.random() * shapes.length);
     shape.classList.add('shape');
@@ -25,7 +25,13 @@ function moving() {
         console.log(shape.style.translate.valueOf());
     });
 }
-for (let i = 0; i < 20; i++) {
-    createshape();
+for (let i = 0; i < 30; i++) {
+    create_shape();
 }
 moving();
+window.onload = () => {
+    moving();
+    setInterval(() => {
+        moving();
+    }, 60000);
+};

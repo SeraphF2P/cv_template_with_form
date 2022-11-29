@@ -103,6 +103,7 @@ const user_name_email = document.getElementById('log_in_user_name_email') as HTM
 const Password_log_in_password = document.getElementById('Password_log_in_password') as HTMLInputElement;
 
 const submit_log_btn = log_in_section?.querySelector('[value="Log in"]');
+const log_in_form = log_in_section?.querySelector('form');
 const close_btn = log_in_section?.querySelector('.btn_close') as HTMLInputElement;
 
 const first_page = document.querySelector('.first_page')as HTMLElement;
@@ -113,12 +114,12 @@ submit_log_btn?.addEventListener('click', (e) => {
        if (users[i].name == user_name_email.value || users[i].email == user_name_email.value ) {
         if(users[i].password == Password_log_in_password.value){
             close_btn?.click();
-            first_page.style.display = 'none';
-            second_page.style.display = 'block';
             moving()
-        setInterval(()=>{
-            moving()
-        },60000)
         }
+        log_in_form?.submit()
     }
 }})
+const theme = document.querySelector('.theme');
+theme?.addEventListener('click',()=>{
+    theme.classList.add('theme_2');
+})

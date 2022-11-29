@@ -1,9 +1,8 @@
 // @use url(google font)
 @use "./globle_Modifier";
-@use "./Off_main_page_sections";
-@use "./theme_1.scss" as theme1;
-@use "./second_page";
-@use "./bg_animation";
+@use "./form";
+@use "./theme_1.scss";
+// @use "./theme_2.scss" as theme_1;
 * {
   font-family: serif;
   font-size: 16px;
@@ -15,7 +14,7 @@
   text-decoration: none;
 }
 .first_page {
-  background-color: #ece9fe;
+  background-color: theme_1.$primary;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -26,7 +25,7 @@
     flex-direction: column;
     background-color: white;
     border-radius: 10px;
-    box-shadow: theme1.$shadow;
+    box-shadow: theme_1.$shadow;
     align-items: center;
     width: 300px;
     height: 350px;
@@ -36,7 +35,7 @@
     padding: 2rem;
     .btn {
       display: block;
-      background: linear-gradient(to top left, #c0b6fc, #ece9fe);
+      background: linear-gradient(to top left, #c0b6fc, theme_1.$primary);
       border: none;
       box-shadow: 6px 6px 10px -1px rgb(0 0 0 / 15%),
         -6px -6px 10px -1px rgb(255 255 255 / 70%);
@@ -46,7 +45,7 @@
       }
     }
     .profile {
-      background-color: #ece9fe;
+      background-color: theme_1.$primary;
       border-radius: 50%;
       position: relative;
       width: 100px;
@@ -67,6 +66,12 @@
 .btn-secondary {
   border-width: 2px solid;
 }
-html {
-  background-color: transparent !important;
+.theme {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background-color: theme_1.$secondary;
 }

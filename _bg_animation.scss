@@ -1,36 +1,73 @@
+@use "./theme_1";
 .bg_animation {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #ece9fe;
+  background-color: theme_1.$primary;
   .shape {
     position: absolute;
     z-index: -1;
     transition: transform 60s linear, rotate 30s linear;
-    border: 1px solid;
-    &.circle {
+    // &.circle {
+    //   width: 100px;
+    //   height: 100px;
+    //   border-radius: 50%;
+    //   background-color: theme_1.$secondary;
+    //   border: 1px solid;
+    // }
+    &.empty_circle {
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      background-color: #fe9ecc;
+      border: 5px solid theme_1.$secondary;
     }
-    &.square {
+    // &.square {
+    //   width: 100px;
+    //   height: 100px;
+    //   background-color: theme_1.$third;
+    //   border: 1px solid;
+    // }
+    &.empty_square {
       width: 100px;
       height: 100px;
-      background-color: #ffd0dc;
+      border: 5px solid theme_1.$third;
     }
     &.triangle {
-      width: 150px;
-      height: 100px;
-      background-color: #ffca3c;
-      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+      width: 300px;
+      height: 300px;
+      scale: 0.5;
+      background-color: theme_1.$fourth;
+      clip-path: polygon(
+        285px 150px,
+        83px 33px,
+        83px 267px,
+        285px 150px,
+        258px 150px,
+        96px 244px,
+        96px 56px,
+        258px 150px
+      );
     }
     &.pentagon {
+      position: relative;
       width: 100px;
       height: 100px;
-      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-      background-color: #866ee0;
+      clip-path: polygon(
+        0% 38%,
+        18% 100%,
+        82% 100%,
+        100% 38%,
+        50% 0%,
+        0% 38%,
+        5% 38%,
+        50% 5%,
+        95% 38%,
+        77% 95%,
+        23% 95%,
+        5% 38%
+      );
+      background-color: theme_1.$fifth;
     }
   }
 }

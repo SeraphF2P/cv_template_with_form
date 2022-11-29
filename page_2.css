@@ -1,0 +1,390 @@
+* {
+  font-family: serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: 0;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.bg_animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ece9fe;
+}
+.bg_animation .shape {
+  position: absolute;
+  z-index: -1;
+  transition: transform 60s linear, rotate 30s linear;
+}
+.bg_animation .shape.empty_circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid #fe9ecc;
+}
+.bg_animation .shape.empty_square {
+  width: 100px;
+  height: 100px;
+  border: 5px solid #ffd0dc;
+}
+.bg_animation .shape.triangle {
+  width: 300px;
+  height: 300px;
+  scale: 0.5;
+  background-color: #ffca3c;
+  -webkit-clip-path: polygon(285px 150px, 83px 33px, 83px 267px, 285px 150px, 258px 150px, 96px 244px, 96px 56px, 258px 150px);
+          clip-path: polygon(285px 150px, 83px 33px, 83px 267px, 285px 150px, 258px 150px, 96px 244px, 96px 56px, 258px 150px);
+}
+.bg_animation .shape.pentagon {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  -webkit-clip-path: polygon(0% 38%, 18% 100%, 82% 100%, 100% 38%, 50% 0%, 0% 38%, 5% 38%, 50% 5%, 95% 38%, 77% 95%, 23% 95%, 5% 38%);
+          clip-path: polygon(0% 38%, 18% 100%, 82% 100%, 100% 38%, 50% 0%, 0% 38%, 5% 38%, 50% 5%, 95% 38%, 77% 95%, 23% 95%, 5% 38%);
+  background-color: #866ee0;
+}
+
+.circular {
+  height: 100px;
+  width: 100px;
+  position: relative;
+}
+
+.circular .inner, .circular .outer, .circular .circle {
+  position: absolute;
+  z-index: 6;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.circular .inner {
+  top: 50%;
+  left: 50%;
+  height: 80px;
+  width: 80px;
+  margin: -40px 0 0 -40px;
+  background-color: #dde6f0;
+  border-radius: 100%;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.circular .circle {
+  z-index: 1;
+  box-shadow: none;
+}
+
+.circular .numb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 18px;
+  font-weight: 500;
+  color: #4158d0;
+}
+
+.circular .bar {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 100px, 100px, 50px);
+}
+
+.circle .bar .progress {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 50px, 100px, 0px);
+}
+
+.circle .bar .progress, .dot span {
+  background: #4158d0;
+}
+
+.circle .left .progress {
+  z-index: 1;
+  -webkit-animation: left 4s linear both;
+          animation: left 4s linear both;
+}
+
+@-webkit-keyframes left {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes left {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+.circle .right {
+  z-index: 3;
+  transform: rotate(180deg);
+}
+
+.circle .right .progress {
+  -webkit-animation: right 4s linear both;
+          animation: right 4s linear both;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+}
+
+@-webkit-keyframes right {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes right {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+.circle .dot {
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 10px;
+  margin-top: -5px;
+  -webkit-animation: dot 8s linear both;
+          animation: dot 8s linear both;
+  transform-origin: 0% 50%;
+}
+
+.circle .dot span {
+  position: absolute;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}
+
+@-webkit-keyframes dot {
+  0% {
+    transform: rotate(-90deg);
+  }
+  50% {
+    transform: rotate(90deg);
+    z-index: 4;
+  }
+  100% {
+    transform: rotate(270deg);
+    z-index: 4;
+  }
+}
+
+@keyframes dot {
+  0% {
+    transform: rotate(-90deg);
+  }
+  50% {
+    transform: rotate(90deg);
+    z-index: 4;
+  }
+  100% {
+    transform: rotate(270deg);
+    z-index: 4;
+  }
+}
+.second_page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.second_page .bg_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #ece9fe;
+}
+.second_page .my_container {
+  width: min(768px, 100%);
+  height: 100%;
+  margin-inline: auto;
+  background-color: hsla(248deg, 92%, 95%, 0.224);
+  box-shadow: 0 0 1rem 3px rgba(0, 0, 0, 0.1), 0 0 1rem -3px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  padding-bottom: 200px;
+  overflow: hidden;
+}
+.second_page .my_container nav {
+  position: fixed;
+  top: 0;
+  width: min(768px, 100%);
+  padding-inline: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  background: linear-gradient(to right, hsla(253deg, 65%, 65%, 0.3), hsla(253deg, 65%, 65%, 0.6));
+  height: 70px;
+}
+.second_page .my_container nav ul {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+  padding-inline: 120px;
+  padding-top: 10px;
+}
+.second_page .my_container nav ul a {
+  transition: font-size 0.3s linear, color 0.3s linear;
+}
+.second_page .my_container nav ul a:hover {
+  font-size: 1.2rem;
+  color: #ffca3c;
+}
+.second_page .my_container nav div {
+  height: 512px;
+  width: 466px;
+  background: linear-gradient(to right, hsla(253deg, 65%, 65%, 0.3), hsla(253deg, 65%, 65%, 0.4));
+  -webkit-clip-path: circle(40.8% at 50% 0);
+          clip-path: circle(40.8% at 50% 0);
+  position: absolute;
+  top: 70px;
+  left: -122px;
+}
+.second_page section {
+  padding: 1rem;
+  border-inline: 1px solid transparent;
+  height: 320px;
+}
+.second_page .section_1 {
+  display: flex;
+}
+.second_page .section_1 .img_border {
+  position: relative;
+  max-width: 200px;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  z-index: 10;
+  border-radius: 50%;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+  background: linear-gradient(to right, hsla(253deg, 65%, 65%, 0.3), hsla(253deg, 65%, 65%, 0.6));
+}
+.second_page .section_1 .img_border img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.second_page .section_1 .aside {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.second_page .section_2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.second_page .section_2 h2 {
+  padding: 1rem;
+}
+.second_page .section_3 {
+  height: 410px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.second_page .section_3 h2 {
+  text-align: center;
+}
+.second_page .section_3 .skills {
+  display: flex;
+  justify-content: space-around;
+  gap: 7rem;
+  flex-wrap: wrap;
+}
+.second_page .section_3 .skills .skill {
+  position: relative;
+  border-radius: 50%;
+  scale: 1.6;
+  background-color: #ece9fe;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+.second_page .section_3 .skills .inner {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2), inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7), -0.5px -0.5px 0px white, 0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+}
+.second_page .section_3 .skills .outer {
+  -webkit-clip-path: circle(100% at 80px 80px);
+          clip-path: circle(100% at 80px 80px);
+  background: radial-gradient(45deg, blue, red);
+}
+.second_page .section_3 .skills .numb {
+  padding-top: 16px;
+}
+
+.back_layer {
+  width: max(100%, 768px);
+  height: 320px;
+  background: red;
+  position: absolute;
+  right: 0;
+  top: 320px;
+  z-index: -1;
+  -webkit-clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
+          clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: min(768px, 100%);
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer ul {
+  display: flex;
+}
+footer ul img {
+  width: 50px;
+  height: 50px;
+}
+
+@-webkit-keyframes anim_1 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes anim_1 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}/*# sourceMappingURL=page_2.css.map */
