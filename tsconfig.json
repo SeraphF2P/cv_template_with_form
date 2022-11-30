@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
     "target": "ES6",
     "module": "CommonJS",
-    "lib": ["dom", "es2017","ES2021"],
+    "lib": ["dom", "es2017", "ES2021", "ES2016.Array.Include"],
     "sourceMap": false,
     // "outDir": "dist",
     // "rootDir": "src",

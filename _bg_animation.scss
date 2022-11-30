@@ -1,73 +1,67 @@
 @use "./theme_1";
-.bg_animation {
+
+.shape {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: theme_1.$primary;
-  .shape {
-    position: absolute;
-    z-index: -1;
-    transition: transform 60s linear, rotate 30s linear;
-    // &.circle {
-    //   width: 100px;
-    //   height: 100px;
-    //   border-radius: 50%;
-    //   background-color: theme_1.$secondary;
-    //   border: 1px solid;
-    // }
-    &.empty_circle {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 5px solid theme_1.$secondary;
-    }
-    // &.square {
-    //   width: 100px;
-    //   height: 100px;
-    //   background-color: theme_1.$third;
-    //   border: 1px solid;
-    // }
-    &.empty_square {
-      width: 100px;
-      height: 100px;
-      border: 5px solid theme_1.$third;
-    }
-    &.triangle {
-      width: 300px;
-      height: 300px;
-      scale: 0.5;
-      background-color: theme_1.$fourth;
-      clip-path: polygon(
-        285px 150px,
-        83px 33px,
-        83px 267px,
-        285px 150px,
-        258px 150px,
-        96px 244px,
-        96px 56px,
-        258px 150px
-      );
-    }
-    &.pentagon {
-      position: relative;
-      width: 100px;
-      height: 100px;
-      clip-path: polygon(
-        0% 38%,
-        18% 100%,
-        82% 100%,
-        100% 38%,
-        50% 0%,
-        0% 38%,
-        5% 38%,
-        50% 5%,
-        95% 38%,
-        77% 95%,
-        23% 95%,
-        5% 38%
-      );
-      background-color: theme_1.$fifth;
-    }
+  z-index: -1;
+  transition: transform 60s linear, rotate 30s linear;
+  // &.circle {
+  //   width: 100px;
+  //   height: 100px;
+  //   border-radius: 50%;
+  //   background-color: theme_1.$secondary;
+  //   border: 1px solid;
+  // }
+  &.empty_circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid theme_1.$secondary;
+  }
+  // &.square {
+  //   width: 100px;
+  //   height: 100px;
+  //   background-color: theme_1.$third;
+  //   border: 1px solid;
+  // }
+  &.empty_square {
+    width: 100px;
+    height: 100px;
+    border: 5px solid theme_1.$third;
+  }
+  &.triangle {
+    width: 100px;
+    height: 100px;
+    scale: 0.5;
+    background-color: theme_1.$fourth;
+    clip-path: polygon(
+      95% 50%,
+      27.67% 11%,
+      27.67% 89%,
+      95% 50%,
+      86% 50%,
+      32% 81.33%,
+      32% 18.66%,
+      86% 50%
+    );
+  }
+  &.pentagon {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    clip-path: polygon(
+      0% 38%,
+      18% 100%,
+      82% 100%,
+      100% 38%,
+      50% 0%,
+      0% 38%,
+      5% 38%,
+      50% 5%,
+      95% 38%,
+      77% 95%,
+      23% 95%,
+      5% 38%
+    );
+    background-color: theme_1.$fifth;
   }
 }

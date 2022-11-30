@@ -14,197 +14,191 @@
 
     <title>Document</title>
   </head>
-  <body class="bg_animation">
-    <div class="second_page">
-      <div class="bg_image"></div>
-      <div class="my_container">
-        <nav>
-          <div></div>
-          <ul>
-            <li><a href="">about me</a></li>
-            <li><a href="">skills</a></li>
-            <li><a href="">let's talk</a></li>
-          </ul>
-        </nav>
+  <body>
+    <div class="bg_animation"></div>
+    <header>
+      <nav>
+        <div class="humburger_menu_icon"><img src="./svg/bx-menu-alt-right.svg" alt="menu"></div>
+        <ul class="sections_menu">
+          <li><a href="#home">home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#bio">Bio</a></li>
+          <li><a href="#exp">Experiance</a></li>
+          <li><a href="#contact">Let's talk</a></li>
+        </ul>
+      </nav>
+    </header>
 
-        <section class="section_1">
-          <div class="img_border">
-            <img src="./svg/bx-user.svg" alt="user_icon" />
-          </div>
-          <div class="aside">
-            <h1>john smith</h1>
-            <p>softwere enginer</p>
-          </div>
-        </section>
-        <section class="section_2">
-          <h2>Bio</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
-            earum? Sequi nobis consectetur placeat rerum, fugit quaerat magnam
-            ea incidunt, facilis blanditiis cumque veniam? Debitis veritatis
-            illo minus nihil quas ipsum deleniti veniam, dignissimos doloribus
-            laborum impedit odit saepe expedita reiciendis autem excepturi
-            recusandae quia tenetur? Explicabo quia sint praesentium!
-          </p>
-        </section>
-        <section class="section_3">
-          <h2>Skills</h2>
-          <div class="skills">
-            <div class="skill skill_1 circular">
-              
-                <div class="inner">HTML</div>
-                <div class="outer"></div>
-                <div class="numb">
-                   0%
-                </div>
-                <div class="circle">
-                   <div class="bar left">
-                      <div class="progress"></div>
-                   </div>
-                   <div class="bar right">
-                      <div class="progress"></div>
-                   </div>
-                </div>
-           
-         
-            </div>
-            <div class="skill skill_2 circular">
-              
-              <div class="inner">HTML</div>
-              <div class="outer"></div>
-              <div class="numb">
-                 0%
-              </div>
-              <div class="circle">
-                 <div class="dot">
-                    <span></span>
-                 </div>
-                 <div class="bar left">
-                    <div class="progress"></div>
-                 </div>
-                 <div class="bar right">
-                    <div class="progress"></div>
-                 </div>
-              </div>
-         
-       
-          </div>
-          <div class="skill skill_3 circular">
-              
+    <main class="my_container">
+      <section class="section_1" id="home">
+        <div class="img_border">
+          <img src="./svg/bx-user.svg" alt="user_icon" />
+        </div>
+        <div class="aside">
+          <h1>john smith</h1>
+          <p class="text_effect"></p>
+        </div>
+      </section>
+      <section class="section_2" id="bio">
+        <h2>Bio</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
+          earum? Sequi nobis consectetur placeat rerum, fugit quaerat magnam ea
+          incidunt, facilis blanditiis cumque veniam? Debitis veritatis illo
+          minus nihil quas ipsum deleniti veniam, dignissimos doloribus laborum
+          impedit odit saepe expedita reiciendis autem excepturi recusandae quia
+          tenetur? Explicabo quia sint praesentium!
+        </p>
+      </section>
+      <section class="section_3" id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+          <div class="skill skill_1">
             <div class="inner">HTML</div>
-            <div class="outer"></div>
-            <div class="numb">
-               0%
-            </div>
-            <div class="circle">
-               <div class="dot">
-                  <span></span>
-               </div>
-               <div class="bar left">
-                  <div class="progress"></div>
-               </div>
-               <div class="bar right">
-                  <div class="progress"></div>
-               </div>
-            </div>
-       
-     
-        </div>
-        <div class="skill skill_4 circular">
-              
-          <div class="inner">HTML</div>
-          <div class="outer"></div>
-          <div class="numb">
-             0%
+            <div class="numb">0%</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              width="160px"
+              height="160px"
+            >
+              <defs>
+                <linearGradient id="progress_bar_1">
+                  <stop offset="0%" stop-color="#866ee0" />
+                  <stop offset="100%" stop-color="#c0b6fc" />
+                </linearGradient>
+              </defs>
+              <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+            </svg>
           </div>
-          <div class="circle">
-             <div class="dot">
-                <span></span>
-             </div>
-             <div class="bar left">
-                <div class="progress"></div>
-             </div>
-             <div class="bar right">
-                <div class="progress"></div>
-             </div>
+          <div class="skill skill_2">
+            <div class="inner">CSS/SCSS</div>
+            <div class="numb">0%</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              width="160px"
+              height="160px"
+            >
+              <defs>
+                <linearGradient id="progress_bar_2">
+                  <stop offset="0%" stop-color="#866ee0" />
+                  <stop offset="100%" stop-color="#c0b6fc" />
+                </linearGradient>
+              </defs>
+              <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+            </svg>
           </div>
-     
-   
-      </div>
-      <div class="skill skill_5 circular">
-              
-        <div class="inner">HTML</div>
-        <div class="outer"></div>
-        <div class="numb">
-           0%
-        </div>
-        <div class="circle">
-           <div class="dot">
-              <span></span>
-           </div>
-           <div class="bar left">
-              <div class="progress"></div>
-           </div>
-           <div class="bar right">
-              <div class="progress"></div>
-           </div>
-        </div>
-   
- 
-    </div>
-    <div class="skill skill_6 circular">
-              
-      <div class="inner">HTML</div>
-      <div class="outer"></div>
-      <div class="numb">
-         0%
-      </div>
-      <div class="circle">
-         <div class="dot">
-            <span></span>
-         </div>
-         <div class="bar left">
-            <div class="progress"></div>
-         </div>
-         <div class="bar right">
-            <div class="progress"></div>
-         </div>
-      </div>
- 
-
-  </div>
+          <div class="skill skill_3">
+            <div class="inner">JS/TS</div>
+            <div class="numb">0%</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              width="160px"
+              height="160px"
+            >
+              <defs>
+                <linearGradient id="progress_bar_3">
+                  <stop offset="0%" stop-color="#866ee0" />
+                  <stop offset="100%" stop-color="#c0b6fc" />
+                </linearGradient>
+              </defs>
+              <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+            </svg>
           </div>
-        </section>
-        
-        <footer>
-          <ul>
-            <li>
-              <a href="">
-                <img src="./svg/bxl-facebook-square.svg" alt="facebook"
-              /></a>
-            </li>
-            <li>
-              <a href=""><img src="./svg/bxl-google.svg" alt="google" /></a>
-            </li>
-            <li>
-              <a href=""><img src="./svg/bxl-twitter.svg" alt="twitter" /></a>
-            </li>
-            <li>
-              <a href=""><img src="./svg/bxl-whatsapp.svg" alt="whatsapp" /></a>
-            </li>
-          </ul>
-        </footer>
-      </div>
-    </div>
+          <div class="skill skill_4">
+            <div class="inner">GIT/GITHUB</div>
+            <div class="numb">0%</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              width="160px"
+              height="160px"
+            >
+              <defs>
+                <linearGradient id="progress_bar_4">
+                  <stop offset="0%" stop-color="#866ee0" />
+                  <stop offset="100%" stop-color="#c0b6fc" />
+                </linearGradient>
+              </defs>
+              <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="skill skill_5">
+            <div class="inner">UI/UX</div>
+            <div class="numb">0%</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              width="160px"
+              height="160px"
+            >
+              <defs>
+                <linearGradient id="progress_bar_5">
+                  <stop offset="0%" stop-color="#866ee0" />
+                  <stop offset="100%" stop-color="#c0b6fc" />
+                </linearGradient>
+              </defs>
+              <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="skill skill_6">
+            <div class="inner">React...</div>
+            <div class="numb">0%</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              width="160px"
+              height="160px"
+            >
+              <defs>
+                <linearGradient id="progress_bar_6">
+                  <stop offset="0%" stop-color="#866ee0" />
+                  <stop offset="100%" stop-color="#c0b6fc" />
+                </linearGradient>
+              </defs>
+              <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+            </svg>
+          </div>
+        </div>
+      </section>
+      <section class="section_4" id="exp">
+        <h2>Experiance</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
+          earum? Sequi nobis consectetur placeat rerum, fugit quaerat magnam ea
+          incidunt, facilis blanditiis cumque veniam? Debitis veritatis illo
+          minus nihil quas ipsum deleniti veniam, dignissimos doloribus laborum
+          impedit odit saepe expedita reiciendis autem excepturi recusandae quia
+          tenetur? Explicabo quia sint praesentium!
+        </p>
+      </section>
+    </main>
+    <footer id="contact">
+      <ul>
+        <li>
+          <a href="">
+            <img src="./svg/bxl-facebook-square.svg" alt="facebook"
+          /></a>
+        </li>
+        <li>
+          <a href=""><img src="./svg/bxl-google.svg" alt="google" /></a>
+        </li>
+        <li>
+          <a href=""><img src="./svg/bxl-twitter.svg" alt="twitter" /></a>
+        </li>
+        <li>
+          <a href=""><img src="./svg/bxl-whatsapp.svg" alt="whatsapp" /></a>
+        </li>
+      </ul>
+    </footer>
     <div class="theme"></div>
-    <div class="back_layer"></div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
-
-    <!-- <script src="./script.js"></script> -->
-    <script src="./bouncing.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

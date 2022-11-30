@@ -1,113 +1,134 @@
 "use strict";
-const sign_up_form = document.getElementById('sign_up');
-const form_btns = document.querySelector('.form_btns');
-const btn_next = form_btns === null || form_btns === void 0 ? void 0 : form_btns.querySelector('.btn_next');
-const btn_prev = form_btns === null || form_btns === void 0 ? void 0 : form_btns.querySelector('.btn_prev');
-const btn_close = form_btns === null || form_btns === void 0 ? void 0 : form_btns.querySelector('.btn_close');
-const steps_bodys = document.querySelector('.steps_bodys');
-const sign_up_section = document.querySelector('.sign_up_section');
-const floatingPassword = document.getElementById('floatingPassword');
-const floatingPassword_confirm = document.getElementById('floatingPassword_confirm');
-const password_confirm_error_message = document.querySelector('.input_error_message.confirm_password');
-const step_body_num_1 = sign_up_section === null || sign_up_section === void 0 ? void 0 : sign_up_section.querySelector('.step_body.num_1');
-const step_body_num_2 = sign_up_section === null || sign_up_section === void 0 ? void 0 : sign_up_section.querySelector('.step_body.num_2');
-const step_body_num_3 = sign_up_section === null || sign_up_section === void 0 ? void 0 : sign_up_section.querySelector('.step_body.num_3');
-const forms_input_1 = Array.from(step_body_num_1.querySelectorAll('input'));
-const forms_input_2 = Array.from(step_body_num_2.querySelectorAll('input'));
-const forms_input_3 = Array.from(step_body_num_3.querySelectorAll('input'));
-const progress_bar = sign_up_section === null || sign_up_section === void 0 ? void 0 : sign_up_section.querySelector('.progress_bar');
-const step_1 = progress_bar === null || progress_bar === void 0 ? void 0 : progress_bar.querySelector('.step_1');
-const step_2 = progress_bar === null || progress_bar === void 0 ? void 0 : progress_bar.querySelector('.step_2');
-const step_3 = progress_bar === null || progress_bar === void 0 ? void 0 : progress_bar.querySelector('.step_3');
-let slide_value = 0;
-function slideX_pre() {
-    steps_bodys.style.transform = `translateX( ${slide_value.toLocaleString()}px)`;
-    if (slide_value != 0 && slide_value != -600) {
-        slide_value += 300;
-    }
-    if (slide_value = -600) {
-        submit_btn.replaceWith(btn_next);
+const bg_animation = document.querySelector('.bg_animation');
+const shapes = ['triangle', 'pentagon', 'empty_circle', 'empty_square'];
+let shapesCollection = [];
+function create_shape() {
+    let shape = document.createElement('div');
+    let random = Math.floor(Math.random() * shapes.length);
+    shape.classList.add('shape');
+    shape.classList.add(shapes[random]);
+    bg_animation === null || bg_animation === void 0 ? void 0 : bg_animation.append(shape);
+    shapesCollection.push(shape);
+    shape.style.translate = `(${Math.floor(window.innerWidth * Math.random())}px,
+    ${Math.floor(window.innerHeight * Math.random() + 300)}px)`;
+    shape.style.rotate = `rotate(${180 * Math.random()}deg)`;
+    shape.style.scale = `${0.5 + (0.5 * Math.random())}`;
+}
+let Xaxis = window.innerWidth;
+let Yaxis = window.innerHeight;
+function moving() {
+    shapesCollection.forEach(shape => {
+        shape.style.transform = `
+        translate(
+        ${(Xaxis * Math.random() - 150)}px
+        ,${Yaxis * Math.random()}px)
+        rotate(${360 * Math.random()}deg)`;
+    });
+}
+for (let i = 0; i < 40; i++) {
+    create_shape();
+}
+moving();
+window.onload = () => {
+    moving();
+    setInterval(() => {
+        moving();
+    }, 60000);
+};
+const skills = Array.from(document.querySelectorAll('.skill'));
+const progress_circle_1 = skills[0].querySelector('circle');
+const progress_circle_2 = skills[1].querySelector('circle');
+const progress_circle_3 = skills[2].querySelector('circle');
+const progress_circle_4 = skills[3].querySelector('circle');
+const progress_circle_5 = skills[4].querySelector('circle');
+const progress_circle_6 = skills[5].querySelector('circle');
+const per_1 = skills[0].querySelector('.numb');
+const per_2 = skills[1].querySelector('.numb');
+const per_3 = skills[2].querySelector('.numb');
+const per_4 = skills[3].querySelector('.numb');
+const per_5 = skills[4].querySelector('.numb');
+const per_6 = skills[5].querySelector('.numb');
+function calc_persent(div, percent) {
+    let num = 0;
+    setInterval(() => {
+        if ((percent / 472) * 100 > num) {
+            num += 5;
+            div.innerHTML = `${num}%`;
+        }
+        else {
+            clearInterval;
+        }
+    }, 100);
+}
+let first_time_scroll = true;
+function progress() {
+    if (scrollY > 584 && scrollY < 1000 && first_time_scroll) {
+        progress_circle_1.style.strokeDashoffset = '0';
+        progress_circle_2.style.strokeDashoffset = '100';
+        progress_circle_3.style.strokeDashoffset = '120';
+        progress_circle_4.style.strokeDashoffset = '200';
+        progress_circle_5.style.strokeDashoffset = '260';
+        progress_circle_6.style.strokeDashoffset = '400';
+        calc_persent(per_1, 472);
+        calc_persent(per_2, 372);
+        calc_persent(per_3, 352);
+        calc_persent(per_4, 272);
+        calc_persent(per_5, 212);
+        calc_persent(per_6, 72);
+        first_time_scroll = false;
     }
 }
-const submit_btn = document.createElement('input');
-submit_btn.setAttribute('type', 'submit');
-submit_btn.setAttribute('class', 'btn btn-primary btn_next');
-submit_btn.setAttribute('form', 'sign_up');
-function slideX_next() {
-    if (forms_input_1 === null || forms_input_1 === void 0 ? void 0 : forms_input_1.every(input => { return input.checkValidity(); })) {
-        steps_bodys.style.transform = 'translate(-300px)';
-        step_1.classList.add('confirmed');
-        btn_close.innerText = 'Preview';
-        btn_close.removeAttribute('data-bs-dismiss');
-        btn_close.classList.remove('btn_close');
-        slide_value = 0;
-        if (floatingPassword.value != floatingPassword_confirm.value) {
-            password_confirm_error_message.style.display = 'block';
+window.onscroll = () => {
+    progress();
+};
+const textDisplay = document.querySelector('.text_effect');
+const phrases = ['Hello World !!!', 'junior web-developer', 'love to code'];
+let i = 0;
+let j = 0;
+let currentPhrase = [];
+let isDeleting = false;
+let isEnd = false;
+function loop() {
+    isEnd = false;
+    textDisplay.innerHTML = currentPhrase.join('');
+    if (i < phrases.length) {
+        if (!isDeleting && j <= phrases[i].length) {
+            currentPhrase.push(phrases[i][j]);
+            j++;
+            textDisplay.innerHTML = currentPhrase.join('');
         }
-        if ((forms_input_2 === null || forms_input_2 === void 0 ? void 0 : forms_input_2.every(input => { return input.checkValidity(); })) && floatingPassword.value == floatingPassword_confirm.value) {
-            steps_bodys.style.transform = 'translate(-600px)';
-            step_2.classList.add('confirmed');
-            slide_value = -300;
-            password_confirm_error_message.style.display = 'none';
-            if (forms_input_3 === null || forms_input_3 === void 0 ? void 0 : forms_input_3.every(input => { return input.checkValidity(); })) {
-                btn_next.replaceWith(submit_btn);
-                submit_btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    steps_bodys.style.transform = 'translate(-900px)';
-                    step_3.classList.add('confirmed');
-                    slide_value = -600;
-                    btn_prev.setAttribute('data-bs-dismiss', "modal");
-                    btn_prev.setAttribute('class', "btn btn-secondry ");
-                    setTimeout(() => {
-                        btn_close.click();
-                    }, 1000);
-                });
+        if (isDeleting && j <= phrases[i].length) {
+            currentPhrase.pop();
+            j--;
+            textDisplay.innerHTML = currentPhrase.join('');
+        }
+        if (j == phrases[i].length) {
+            isEnd = true;
+            isDeleting = true;
+        }
+        if (isDeleting && j === 0) {
+            currentPhrase = [];
+            isDeleting = false;
+            i++;
+            if (i === phrases.length) {
+                i = 0;
             }
         }
     }
+    const spedUp = Math.random() * (80 - 50) + 50;
+    const normalSpeed = Math.random() * (300 - 200) + 200;
+    const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed;
+    setTimeout(loop, time);
 }
-btn_prev === null || btn_prev === void 0 ? void 0 : btn_prev.addEventListener('click', slideX_pre);
-btn_next === null || btn_next === void 0 ? void 0 : btn_next.addEventListener('click', slideX_next);
-let users = [{ name: 'jafer ali', email: 'fanfar13@gmail.com', password: 'asdasd', location: null }];
-submit_btn.addEventListener('click', () => {
-    let full_name_input = document.getElementById('full_name_input');
-    let floatingInput_email = document.getElementById('floatingInput_email');
-    let floatingPassword = document.getElementById('floatingPassword');
-    let inputAddress = document.getElementById('inputAddress');
-    let inputAddress2 = document.getElementById('inputAddress2');
-    let inputCity = document.getElementById('inputCity');
-    let inputState = document.getElementById('inputState');
-    let inputZip = document.getElementById('inputZip');
-    let userInfo = {
-        name: `${full_name_input.value}`,
-        email: `${floatingInput_email.value}`,
-        password: `${floatingPassword.value}`,
-        location: `${inputAddress.value},${inputAddress2.value},${inputCity.value},${inputState.value},${inputZip.value}`
-    };
-    users.push(userInfo);
-    console.log(users);
+loop();
+const humburger_menu_icon = document.querySelector('.humburger_menu_icon');
+const sections_menu = document.querySelector('.sections_menu');
+const sections_list_items = Array.from(sections_menu.querySelectorAll('li'));
+humburger_menu_icon === null || humburger_menu_icon === void 0 ? void 0 : humburger_menu_icon.addEventListener('click', () => {
+    sections_list_items.forEach(li => li.classList.toggle('show'));
 });
-const log_in_section = document.querySelector('.log_in_section');
-const user_name_email = document.getElementById('log_in_user_name_email');
-const Password_log_in_password = document.getElementById('Password_log_in_password');
-const submit_log_btn = log_in_section === null || log_in_section === void 0 ? void 0 : log_in_section.querySelector('[value="Log in"]');
-const log_in_form = log_in_section === null || log_in_section === void 0 ? void 0 : log_in_section.querySelector('form');
-const close_btn = log_in_section === null || log_in_section === void 0 ? void 0 : log_in_section.querySelector('.btn_close');
-const first_page = document.querySelector('.first_page');
-const second_page = document.querySelector('.second_page');
-submit_log_btn === null || submit_log_btn === void 0 ? void 0 : submit_log_btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    for (let i = 0; i < users.length; i++) {
-        if (users[i].name == user_name_email.value || users[i].email == user_name_email.value) {
-            if (users[i].password == Password_log_in_password.value) {
-                close_btn === null || close_btn === void 0 ? void 0 : close_btn.click();
-                moving();
-            }
-            log_in_form === null || log_in_form === void 0 ? void 0 : log_in_form.submit();
-        }
-    }
-});
-const theme = document.querySelector('.theme');
-theme === null || theme === void 0 ? void 0 : theme.addEventListener('click', () => {
-    theme.classList.add('theme_2');
+sections_list_items.forEach(li => {
+    li.addEventListener('click', () => {
+        sections_list_items.forEach(li => li.classList.remove('show'));
+    });
 });
