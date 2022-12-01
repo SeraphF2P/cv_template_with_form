@@ -9,6 +9,10 @@
   text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 li {
   list-style: none;
 }
@@ -84,6 +88,34 @@ a {
   stroke: url(#progress_bar_6);
 }
 
+body.dark_mode {
+  background-image: radial-gradient(#ffca3c 0.5px, transparent 0.5px), radial-gradient(#ffca3c 0.5px, #1a1a1a 0.5px);
+  color: white;
+}
+body.dark_mode nav {
+  background: hsla(253deg, 65%, 65%, 0.9);
+}
+body.dark_mode nav a {
+  color: white;
+}
+body.dark_mode main {
+  background-color: hsla(0deg, 0%, 100%, 0.1);
+  box-shadow: 0 0 1rem 3px rgba(0, 0, 0, 0.1), 0 0 1rem -3px rgba(0, 0, 0, 0.1);
+}
+body.dark_mode main section:nth-child(2n) p {
+  border-left: 2px solid white;
+}
+body.dark_mode main .section_1 .img_border {
+  box-shadow: none;
+}
+body.dark_mode main .section_1 p {
+  border-right: 2px solid white;
+}
+body.dark_mode main .section_3 .skill {
+  color: white;
+  box-shadow: none;
+  background-color: hsla(0deg, 100%, 100%, 0.1);
+}
 body {
   position: relative;
   width: 100%;
@@ -94,16 +126,21 @@ body {
   background-position: 0 0, 10px 10px;
 }
 
+header {
+  width: min(768px, 100%);
+  margin-inline: auto;
+}
 header nav {
+  transition: translate 0.4s linear;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: min(768px, 100%);
   height: 70px;
   z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, hsla(253deg, 65%, 65%, 0.3), hsla(253deg, 65%, 65%, 0.6));
+  background: hsla(253deg, 65%, 65%, 0.6);
   box-shadow: 0 0 1rem 3px rgba(0, 0, 0, 0.1), 0 0 1rem -3px rgba(0, 0, 0, 0.1);
 }
 header nav ul {
@@ -120,10 +157,10 @@ header nav ul a {
   line-break: none;
 }
 header nav ul a:hover {
-  font-size: 1.1rem;
   color: #ffca3c;
 }
-header nav .humburger_menu_icon {
+
+.humburger_menu_icon {
   display: none;
 }
 
@@ -136,7 +173,7 @@ header nav .humburger_menu_icon {
   z-index: -1;
 }
 
-.my_container {
+main {
   width: min(768px, 100%);
   margin-inline: auto;
   background-color: hsla(0deg, 0%, 100%, 0.6);
@@ -144,38 +181,12 @@ header nav .humburger_menu_icon {
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
 }
-.my_container section {
+main section {
   padding: 1rem;
   border-inline: 1px solid transparent;
   min-height: 360px;
 }
-.my_container section:nth-child(2)::before {
-  content: "";
-  position: absolute;
-  width: max(100%, 768px);
-  height: 100%;
-  background: #866ee0;
-  opacity: 0.8;
-  top: 0;
-  right: 0;
-  z-index: -1;
-  -webkit-clip-path: polygon(19% 0%, 100% 1%, 100% 100%, 19% 100%, 0% 50%);
-          clip-path: polygon(19% 0%, 100% 1%, 100% 100%, 19% 100%, 0% 50%);
-}
-.my_container section:nth-child(4)::before {
-  content: "";
-  position: absolute;
-  width: max(100%, 768px);
-  height: 100%;
-  background: #866ee0;
-  opacity: 0.8;
-  top: 0;
-  right: 0;
-  z-index: -1;
-  -webkit-clip-path: polygon(0% 0%, 81% 0%, 100% 50%, 81% 100%, 0% 100%);
-          clip-path: polygon(0% 0%, 81% 0%, 100% 50%, 81% 100%, 0% 100%);
-}
-.my_container section + section:nth-child(2n) {
+main section + section:nth-child(2n) {
   position: relative;
   display: flex;
   justify-content: center;
@@ -183,20 +194,37 @@ header nav .humburger_menu_icon {
   margin-block: 3rem;
   gap: 1rem;
 }
-.my_container section + section:nth-child(2n) h2 {
+main section + section:nth-child(2n) h2 {
   padding: 1rem;
 }
-.my_container section + section:nth-child(2n) p {
+main section + section:nth-child(2n) p {
   border-left: 2px solid black;
   padding: 8px;
 }
-.my_container .section_1 {
+main section + section:nth-child(2n)::before {
+  content: "";
+  position: absolute;
+  width: min(768px, 100%);
+  height: 100%;
+  background: #866ee0;
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-clip-path: polygon(19% 0%, 100% 1%, 100% 100%, 19% 100%, 0% 50%);
+          clip-path: polygon(19% 0%, 100% 1%, 100% 100%, 19% 100%, 0% 50%);
+}
+main section + section:nth-child(2n):nth-child(4)::before {
+  -webkit-clip-path: polygon(0% 0%, 81% 0%, 100% 50%, 81% 100%, 0% 100%);
+          clip-path: polygon(0% 0%, 81% 0%, 100% 50%, 81% 100%, 0% 100%);
+}
+main .section_1 {
   display: flex;
   align-items: center;
   margin-top: 70px;
   font-size: 3rem;
 }
-.my_container .section_1 .img_border {
+main .section_1 .img_border {
   position: relative;
   width: 100%;
   max-width: 200px;
@@ -205,43 +233,44 @@ header nav .humburger_menu_icon {
   z-index: 10;
   border-radius: 50%;
   box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
-  background: linear-gradient(to right, hsla(253deg, 65%, 65%, 0.3), hsla(253deg, 65%, 65%, 0.6));
+  background: hsla(253deg, 65%, 65%, 0.6);
 }
-.my_container .section_1 .img_border img {
+main .section_1 .img_border img {
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
 }
-.my_container .section_1 .aside {
+main .section_1 .aside {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.my_container .section_1 .aside h1 {
+main .section_1 .aside h1 {
   font-size: 3rem;
 }
-.my_container .section_1 .aside p {
+main .section_1 .aside p {
   font-size: 1.5rem;
+  min-height: 2.5rem;
 }
-.my_container .section_3 {
+main .section_3 {
   height: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
-.my_container .section_3 h2 {
+main .section_3 h2 {
   text-align: center;
 }
-.my_container .section_3 .skills {
+main .section_3 .skills {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 2rem;
 }
-.my_container .section_3 .skills .skill {
+main .section_3 .skills .skill {
   position: relative;
   width: 160px;
   height: 160px;
@@ -265,9 +294,51 @@ footer {
 footer ul {
   display: flex;
 }
-footer ul img {
+footer ul svg {
   width: 50px;
   height: 50px;
+}
+
+.theme_list {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  padding: 5px;
+  background-color: #e5e5f7;
+  justify-content: flex-end;
+  transition: width 1s linear;
+}
+.theme_list.checked {
+  width: 160px;
+  gap: 5px;
+}
+.theme_list .theme_list_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #866ee0;
+  transition: rotate 2s linear;
+}
+.theme_list .theme_list_btn:not(:last-child) {
+  width: 30px;
+  height: 30px;
+  margin-block: auto;
+}
+.theme_list .theme_list_btn.checked {
+  transform: rotate(225deg);
+}
+.theme_list .theme_list_btn svg {
+  fill: white;
 }
 
 @media (max-width: 486px) {
@@ -275,6 +346,7 @@ footer ul img {
     flex-direction: column;
   }
   .humburger_menu_icon {
+    display: block;
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;

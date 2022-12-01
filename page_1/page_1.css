@@ -62,6 +62,9 @@ a {
 .form_section .log_in_section .modal-dialog-centered .modal-content form {
   width: 100%;
 }
+.form_section .log_in_section .modal-dialog-centered .modal-content form .form-floating input {
+  transition: box-shadow 0.3s linear;
+}
 .form_section .log_in_section .modal-dialog-centered .modal-content form div {
   font-size: 0.8rem;
   margin-bottom: 16px;
@@ -98,6 +101,7 @@ a {
   width: 200px;
   height: 24px;
   margin: 1rem auto;
+  perspective: 1000px;
 }
 .form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar span {
   display: flex;
@@ -112,12 +116,26 @@ a {
   z-index: 1;
   outline: 2px solid #4828bd;
   position: relative;
+  transition: transform 0.3s linear;
+  transform: scaleX(1);
+  transform-origin: center;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
-.form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar span.confirmed {
-  -webkit-animation: confirmed 1s forwards;
-          animation: confirmed 1s forwards;
+.form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar span:not(.step_3)::after {
+  content: "";
+  position: absolute;
+  top: 48%;
+  height: 2px;
+  width: 32px;
+  right: -34px;
+  transition: 1s;
+  background: #ece9fe;
 }
-.form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar span.confirmed:not(:nth-child(3))::after {
+.form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar span.checked {
+  transform: scaleX(0);
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar span.checked:not(:nth-child(3))::after {
   content: "";
   background-color: #4828bd;
   position: absolute;
@@ -126,13 +144,32 @@ a {
   height: 2px;
   width: 70px;
 }
+.form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar span + img {
+  background-color: #4828bd;
+  width: 32px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid #866ee0;
+  position: relative;
+  left: -32px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform: scaleX(0);
+  z-index: 10;
+  transition: transform 0.3s linear 0.3s;
+  transform-origin: center;
+}
+.form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar span + img.checked {
+  transform: scaleX(1);
+}
 .form_section .sign_up_section .modal-dialog-centered .modal-content .progress_bar .line {
   display: block;
   position: absolute;
   top: 48%;
+  left: 32px;
   height: 2px;
-  width: 200px;
-  background: #ece9fe;
+  width: 120px;
+  background: #866ee0;
 }
 .form_section .sign_up_section .modal-dialog-centered .modal-content .form_btns {
   width: 300px;
@@ -169,6 +206,7 @@ a {
 }
 .form_section .sign_up_section .modal-dialog-centered .modal-content .modal-body .steps_bodys .step_body input {
   position: relative;
+  transition: box-shadow 1s linear;
 }
 .form_section .sign_up_section .modal-dialog-centered .modal-content .modal-body .steps_bodys .step_body.num_4 h1 {
   text-align: center;
@@ -197,19 +235,17 @@ input:focus:invalid + p.input_error_message {
   display: block !important;
 }
 
-@-webkit-keyframes confirmed {
-  to {
-    background-color: #4828bd;
-  }
+.background_image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-@keyframes confirmed {
-  to {
-    background-color: #4828bd;
-  }
-}
 .first_page {
-  background-color: #ece9fe;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -219,7 +255,7 @@ input:focus:invalid + p.input_error_message {
 .first_page .landing {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: hsla(0deg, 0%, 100%, 0.8);
   border-radius: 10px;
   box-shadow: 0 0 1rem 3px rgba(0, 0, 0, 0.1), 0 0 1rem -3px rgba(0, 0, 0, 0.1);
   align-items: center;
@@ -229,6 +265,10 @@ input:focus:invalid + p.input_error_message {
   margin-inline: auto;
   margin-top: 3rem;
   padding: 2rem;
+  -webkit-animation: fadeUp 2s forwards;
+          animation: fadeUp 2s forwards;
+  opacity: 0;
+  transform: translateY(-10px);
 }
 .first_page .landing .btn {
   display: block;
@@ -260,4 +300,18 @@ input:focus:invalid + p.input_error_message {
 
 .btn-secondary {
   border-width: 2px solid;
+}
+
+@-webkit-keyframes fadeUp {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }/*# sourceMappingURL=page_1.css.map */

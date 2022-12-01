@@ -9,7 +9,7 @@ function create_shape() {
     shape.classList.add(shapes[random]);
     bg_animation === null || bg_animation === void 0 ? void 0 : bg_animation.append(shape);
     shapesCollection.push(shape);
-    shape.style.translate = `(${Math.floor(window.innerWidth * Math.random())}px,
+    shape.style.translate = `(${(Math.floor(window.innerWidth + 150) * Math.random() + 150)}px,
     ${Math.floor(window.innerHeight * Math.random() + 300)}px)`;
     shape.style.rotate = `rotate(${180 * Math.random()}deg)`;
     shape.style.scale = `${0.5 + (0.5 * Math.random())}`;
@@ -22,7 +22,7 @@ function moving() {
         translate(
         ${(Xaxis * Math.random() - 150)}px
         ,${Yaxis * Math.random()}px)
-        rotate(${360 * Math.random()}deg)`;
+        rotate(${180 * Math.random()}deg)`;
     });
 }
 for (let i = 0; i < 40; i++) {
@@ -58,11 +58,11 @@ function calc_persent(div, percent) {
         else {
             clearInterval;
         }
-    }, 100);
+    }, 250);
 }
 let first_time_scroll = true;
 function progress() {
-    if (scrollY > 584 && scrollY < 1000 && first_time_scroll) {
+    if (scrollY > 880 && scrollY < 1280 && first_time_scroll) {
         progress_circle_1.style.strokeDashoffset = '0';
         progress_circle_2.style.strokeDashoffset = '100';
         progress_circle_3.style.strokeDashoffset = '120';
@@ -78,8 +78,18 @@ function progress() {
         first_time_scroll = false;
     }
 }
+let nav_is_visible = true;
+const nav = document.querySelector('.nav_bar');
 window.onscroll = () => {
     progress();
+    if (nav_is_visible) {
+        nav.style.translate = '0px -70px';
+        nav_is_visible = !nav_is_visible;
+    }
+    else if (nav_is_visible == false) {
+        setTimeout(() => { nav.style.translate = '0px 0px'; }, 200);
+        nav_is_visible = !nav_is_visible;
+    }
 };
 const textDisplay = document.querySelector('.text_effect');
 const phrases = ['Hello World !!!', 'junior web-developer', 'love to code'];
@@ -130,5 +140,13 @@ humburger_menu_icon === null || humburger_menu_icon === void 0 ? void 0 : humbur
 sections_list_items.forEach(li => {
     li.addEventListener('click', () => {
         sections_list_items.forEach(li => li.classList.remove('show'));
+    });
+});
+const theme_list_btns = Array.from(document.querySelectorAll('.theme_list_btn'));
+const theme_list = document.querySelector('.theme_list');
+theme_list_btns === null || theme_list_btns === void 0 ? void 0 : theme_list_btns.forEach(item => {
+    item.addEventListener('click', () => {
+        item.classList.toggle('checked');
+        theme_list === null || theme_list === void 0 ? void 0 : theme_list.classList.toggle('checked');
     });
 });

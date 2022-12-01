@@ -1,0 +1,44 @@
+@use "./theme_1";
+body {
+  &.dark_mode {
+    background-image: radial-gradient(#ffca3c 0.5px, transparent 0.5px),
+      radial-gradient(#ffca3c 0.5px, #1a1a1a 0.5px);
+    // background: red;
+    color: white;
+    nav {
+      background: hsl(253, 65%, 65%, 0.9);
+      a {
+        color: white;
+      }
+    }
+    main {
+      background-color: hsl(0, 0%, 100%, 0.1);
+      box-shadow: theme_1.$shadow;
+      section {
+        &:nth-child(2n) {
+          p {
+            border-left: 2px solid white;
+          }
+        }
+      }
+      .section_1 {
+        .img_border {
+          box-shadow: none;
+        }
+        p {
+          border-right: 2px solid white;
+        }
+      }
+      .section_3 {
+        .skill {
+          color: white;
+          box-shadow: none;
+          background-color: hsl(0, 100%, 100%, 0.1);
+        }
+      }
+    }
+    footer{
+
+    }
+  }
+}

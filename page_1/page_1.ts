@@ -20,10 +20,13 @@ const forms_input_2 = Array.from(step_body_num_2!.querySelectorAll('input'));
 const forms_input_3 = Array.from(step_body_num_3!.querySelectorAll('input'));
 
 const progress_bar = sign_up_section?.querySelector('.progress_bar');
-const step_1 = progress_bar?.querySelector('.step_1') as HTMLDivElement;
-const step_2 = progress_bar?.querySelector('.step_2') as HTMLDivElement;
-const step_3 = progress_bar?.querySelector('.step_3') as HTMLDivElement;
+const step_1 = progress_bar?.querySelector('span.step_1') as HTMLDivElement;
+const step_2 = progress_bar?.querySelector('span.step_2') as HTMLDivElement;
+const step_3 = progress_bar?.querySelector('span.step_3') as HTMLDivElement;
 
+const step_1_img = progress_bar?.querySelector('img.step_1') as HTMLDivElement;
+const step_2_img = progress_bar?.querySelector('img.step_2') as HTMLDivElement;
+const step_3_img = progress_bar?.querySelector('img.step_3') as HTMLDivElement;
 
 
 let slide_value: number = 0;
@@ -43,7 +46,8 @@ submit_btn.setAttribute('form', 'sign_up');
 function slideX_next() {
     if (forms_input_1?.every(input => { return input.checkValidity() })) {
         steps_bodys.style.transform = 'translate(-300px)';
-        step_1.classList.add('confirmed');
+        step_1.classList.add('checked');
+        step_1_img.classList.add('checked');
         btn_close.innerText = 'Preview';
         btn_close.removeAttribute('data-bs-dismiss')
         btn_close.classList.remove('btn_close')
@@ -53,7 +57,8 @@ function slideX_next() {
         }
         if (forms_input_2?.every(input => { return input.checkValidity() }) && floatingPassword.value == floatingPassword_confirm.value) {
             steps_bodys.style.transform = 'translate(-600px)'
-            step_2.classList.add('confirmed');
+            step_2.classList.add('checked');
+            step_2_img.classList.add('checked');
             slide_value = -300;
             password_confirm_error_message.style.display = 'none'
             if (forms_input_3?.every(input => { return input.checkValidity() })) {
@@ -61,7 +66,8 @@ function slideX_next() {
                 submit_btn.addEventListener('click', (e) => {
                     e.preventDefault()
                     steps_bodys.style.transform = 'translate(-900px)';
-                    step_3.classList.add('confirmed');
+                    step_3.classList.add('checked');
+                    step_3_img.classList.add('checked');
                     slide_value = -600;
                     btn_prev.setAttribute('data-bs-dismiss',"modal");
                     btn_prev.setAttribute('class',"btn btn-secondry ");

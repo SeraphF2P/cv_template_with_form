@@ -1,8 +1,8 @@
 @use "./globle_Modifier";
-@use "./theme_1";
-// @use "./theme_2" as theme_1;
+@use "./theme_1" as theme_1;
 @use "./bg_animation";
 @use "./progress";
+@use "./dark_mode";
 
 body {
   position: relative;
@@ -16,20 +16,19 @@ body {
 }
 
 header {
+  width: min(768px, 100%);
+  margin-inline: auto;
   nav {
+    transition: translate 0.4s linear;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: min(768px, 100%);
     height: 70px;
     z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(
-      to right,
-      hsl(253, 65%, 65%, 0.3),
-      hsl(253, 65%, 65%, 0.6)
-    );
+    background: hsl(253, 65%, 65%, 0.6);
     box-shadow: theme_1.$shadow;
     ul {
       width: 320px;
@@ -43,15 +42,14 @@ header {
         transition: font-size 0.2s linear, color 0.2s linear;
         line-break: none;
         &:hover {
-          font-size: 1.1rem;
           color: theme_1.$fourth;
         }
       }
     }
-    .humburger_menu_icon {
-      display: none;
-    }
   }
+}
+.humburger_menu_icon {
+  display: none;
 }
 .bg_animation {
   position: absolute;
@@ -61,7 +59,7 @@ header {
   height: 100%;
   z-index: -1;
 }
-.my_container {
+main {
   width: min(768px, 100%);
   margin-inline: auto;
   background-color: hsl(0, 0%, 100%, 0.6);
@@ -72,34 +70,6 @@ header {
     padding: 1rem;
     border-inline: 1px solid transparent;
     min-height: 360px;
-    &:nth-child(2) {
-      &::before {
-        content: "";
-        position: absolute;
-        width: max(100%, 768px);
-        height: 100%;
-        background: #866ee0;
-        opacity: 0.8;
-        top: 0;
-        right: 0;
-        z-index: -1;
-        clip-path: polygon(19% 0%, 100% 1%, 100% 100%, 19% 100%, 0% 50%);
-      }
-    }
-    &:nth-child(4) {
-      &::before {
-        content: "";
-        position: absolute;
-        width: max(100%, 768px);
-        height: 100%;
-        background: #866ee0;
-        opacity: 0.8;
-        top: 0;
-        right: 0;
-        z-index: -1;
-        clip-path: polygon(0% 0%, 81% 0%, 100% 50%, 81% 100%, 0% 100%);
-      }
-    }
     + section:nth-child(2n) {
       position: relative;
       display: flex;
@@ -113,6 +83,21 @@ header {
       p {
         border-left: 2px solid black;
         padding: 8px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: min(768px, 100%);
+        height: 100%;
+        background: #866ee0;
+        opacity: 0.8;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        clip-path: polygon(19% 0%, 100% 1%, 100% 100%, 19% 100%, 0% 50%);
+      }
+      &:nth-child(4)::before {
+        clip-path: polygon(0% 0%, 81% 0%, 100% 50%, 81% 100%, 0% 100%);
       }
     }
   }
@@ -131,11 +116,7 @@ header {
       border-radius: 50%;
       box-shadow: 6px 6px 10px -1px rgb(0 0 0 / 15%),
         -6px -6px 10px -1px rgb(255 255 255 / 70%);
-      background: linear-gradient(
-        to right,
-        hsl(253, 65%, 65%, 0.3),
-        hsl(253, 65%, 65%, 0.6)
-      );
+      background: hsl(253, 65%, 65%, 0.6);
       img {
         width: 100%;
         position: absolute;
@@ -154,6 +135,7 @@ header {
       }
       p {
         font-size: 1.5rem;
+        min-height: 2.5rem;
       }
     }
   }
@@ -195,27 +177,60 @@ footer {
   align-items: center;
   ul {
     display: flex;
-    img {
+    svg {
       width: 50px;
       height: 50px;
     }
   }
 }
-// .theme {
-//   width: 40px;
-//   height: 40px;
-//   border-radius: 50%;
-//   position: fixed;
-//   right: 1rem;
-//   bottom: 1rem;
-//   background-color: theme_1.$secondary;
-// }
+.theme_list {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  padding: 5px;
+  background-color: #e5e5f7;
+  justify-content: flex-end;
+  transition: width 1s linear;
+  &.checked {
+    width: 160px;
+    gap: 5px;
+  }
+  .theme_list_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #866ee0;
+    transition: rotate 2s linear;
+    &:not(:last-child) {
+      width: 30px;
+      height: 30px;
+      margin-block: auto;
+    }
+    &.checked {
+      transform: rotate(225deg);
+    }
 
+    svg {
+      fill: white;
+    }
+  }
+}
 @media (max-width: 486px) {
   .section_1 {
     flex-direction: column;
   }
   .humburger_menu_icon {
+    display: block;
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;

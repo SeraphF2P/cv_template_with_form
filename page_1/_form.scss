@@ -45,6 +45,11 @@
         }
         form {
           width: 100%;
+          .form-floating {
+            input {
+              transition: box-shadow 0.3s linear;
+            }
+          }
           div {
             font-size: 0.8rem;
             margin-bottom: 16px;
@@ -84,6 +89,8 @@
           width: 200px;
           height: 24px;
           margin: 1rem auto;
+          perspective: 1000px;
+
           span {
             display: flex;
             justify-content: center;
@@ -97,8 +104,22 @@
             z-index: 1;
             outline: 2px solid theme1.$fifth_2;
             position: relative;
-            &.confirmed {
-              animation: confirmed 1s forwards;
+            transition: transform 0.3s linear;
+            transform: scaleX(1);
+            transform-origin: center;
+            backface-visibility: hidden;
+            &:not(.step_3)::after {
+              content: "";
+              position: absolute;
+              top: 48%;
+              height: 2px;
+              width: 32px;
+              right: -34px;
+              transition: 1s;
+              background: theme1.$primary;
+            }
+            &.checked {
+              transform: scaleX(0);
               &:not(:nth-child(3))::after {
                 content: "";
                 background-color: theme1.$fifth_2;
@@ -109,14 +130,32 @@
                 width: 70px;
               }
             }
+            + img {
+              background-color: theme1.$fifth_2;
+              width: 32px;
+              aspect-ratio: 1;
+              border-radius: 50%;
+              border: 2px solid theme1.$fifth;
+              position: relative;
+              left: -32px;
+              backface-visibility: hidden;
+              transform: scaleX(0);
+              z-index: 10;
+              transition: transform 0.3s linear 0.3s;
+              transform-origin: center;
+              &.checked {
+                transform: scaleX(1);
+              }
+            }
           }
           .line {
             display: block;
             position: absolute;
             top: 48%;
+            left: 32px;
             height: 2px;
-            width: 200px;
-            background: theme1.$primary;
+            width: 120px;
+            background: theme1.$fifth;
           }
         }
         .form_btns {
@@ -151,6 +190,7 @@
               gap: 2rem;
               input {
                 position: relative;
+                transition: box-shadow 1s linear;
               }
               &.num_4 {
                 h1 {
@@ -183,10 +223,5 @@ input:focus:invalid {
   box-shadow: 0 0 0px 0.25rem hsl(17, 98%, 61%);
   + p.input_error_message {
     display: block !important;
-  }
-}
-@keyframes confirmed {
-  to {
-    background-color: theme1.$fifth_2;
   }
 }
