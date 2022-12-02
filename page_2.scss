@@ -1,13 +1,20 @@
 @use "./globle_Modifier";
-@use "./theme_1" as theme_1;
 @use "./bg_animation";
 @use "./progress";
+@use "./my_mixin";
+@use "./custom_class";
+@use "./light_mode" as light;
 @use "./dark_mode";
+@use "./color_mode";
 
+* {
+  transition: background-color 0.5s linear, color 0.3s linear;
+}
 body {
-  position: relative;
   width: 100%;
-  background-color: theme_1.$primary;
+  height: 100%;
+  min-height: 100vh;
+  background-color: light.$secondary;
   opacity: 0.8;
   background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px),
     radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
@@ -19,7 +26,7 @@ header {
   width: min(768px, 100%);
   margin-inline: auto;
   nav {
-    transition: translate 0.4s linear;
+    transition: translate 0.5s linear;
     position: fixed;
     top: 0;
     width: min(768px, 100%);
@@ -29,12 +36,14 @@ header {
     justify-content: center;
     align-items: center;
     background: hsl(253, 65%, 65%, 0.6);
-    box-shadow: theme_1.$shadow;
+    box-shadow: light.$shadow;
+    .humburger_menu_btn {
+      @include my_mixin.btn;
+      display: none;
+    }
     ul {
-      width: 320px;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
       gap: 1.5rem;
       font-size: 1.5rem;
       padding-top: 10px;
@@ -42,15 +51,13 @@ header {
         transition: font-size 0.2s linear, color 0.2s linear;
         line-break: none;
         &:hover {
-          color: theme_1.$fourth;
+          color: light.$fourth;
         }
       }
     }
   }
 }
-.humburger_menu_icon {
-  display: none;
-}
+
 .bg_animation {
   position: absolute;
   top: 0;
@@ -63,7 +70,7 @@ main {
   width: min(768px, 100%);
   margin-inline: auto;
   background-color: hsl(0, 0%, 100%, 0.6);
-  box-shadow: theme_1.$shadow;
+  box-shadow: light.$shadow;
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   section {
@@ -76,20 +83,21 @@ main {
       justify-content: center;
       align-items: center;
       margin-block: 3rem;
-      gap: 1rem;
+      // gap: 1rem;
       h2 {
         padding: 1rem;
+        width: calc(19% - 0.5rem);
       }
       p {
         border-left: 2px solid black;
-        padding: 8px;
+        padding: 0.5rem;
       }
       &::before {
         content: "";
         position: absolute;
         width: min(768px, 100%);
         height: 100%;
-        background: #866ee0;
+        background: light.$primary;
         opacity: 0.8;
         top: 0;
         left: 0;
@@ -117,8 +125,13 @@ main {
       box-shadow: 6px 6px 10px -1px rgb(0 0 0 / 15%),
         -6px -6px 10px -1px rgb(255 255 255 / 70%);
       background: hsl(253, 65%, 65%, 0.6);
+      .place_holder,
       img {
         width: 100%;
+        max-width: 200px;
+        height: 100%;
+        height: 200px;
+        aspect-ratio: 1;
         position: absolute;
         top: 0;
         left: 0;
@@ -161,7 +174,7 @@ main {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: theme_1.$primary;
+        background-color: light.$secondary;
         box-shadow: 6px 6px 10px -1px rgb(0, 0, 0, 0.15),
           -6px -6px 10px -1px rgb(255, 255, 255, 0.7);
       }
@@ -184,22 +197,25 @@ footer {
   }
 }
 .theme_list {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  position: fixed;
+  top: calc(70px + 1rem);
+  right: calc(((100% - 768px) / 2) + 1rem);
   z-index: 999;
   width: 50px;
   height: 50px;
   border-radius: 25px;
   display: flex;
   padding: 5px;
-  background-color: #e5e5f7;
+  background-color: light.$secondary;
+  outline: 2px solid light.$primary;
   justify-content: flex-end;
-  transition: width 1s linear;
+  transition: width 1s linear, translate 0.5s linear;
+  transform-origin: right;
   &.checked {
     width: 160px;
     gap: 5px;
   }
+  .theme_list_item,
   .theme_list_btn {
     display: flex;
     justify-content: center;
@@ -209,13 +225,8 @@ footer {
     cursor: pointer;
     aspect-ratio: 1;
     border-radius: 50%;
-    background-color: #866ee0;
-    transition: rotate 2s linear;
-    &:not(:last-child) {
-      width: 30px;
-      height: 30px;
-      margin-block: auto;
-    }
+    background-color: light.$primary;
+    transition: transform 1s linear;
     &.checked {
       transform: rotate(225deg);
     }
@@ -224,25 +235,60 @@ footer {
       fill: white;
     }
   }
+  .theme_list_btn {
+    z-index: 9999;
+  }
+  .theme_list_item {
+    width: 30px;
+    height: 30px;
+    margin-block: auto;
+    &:nth-child(1) {
+      transition: transform 1.1s linear;
+    }
+    &:nth-child(2) {
+      transition: transform 0.8s linear;
+    }
+    &:nth-child(3) {
+      transition: transform 0.4s linear;
+    }
+    &:nth-child(1) {
+      transform: translateX(95px);
+    }
+    &:nth-child(2) {
+      transform: translateX(65px);
+    }
+    &:nth-child(3) {
+      transform: translateX(30px);
+    }
+    &.checked {
+      transform: translateX(0);
+    }
+    &.active {
+      svg {
+        fill: yellow;
+      }
+    }
+  }
 }
-@media (max-width: 486px) {
+@media (max-width: 768px) {
   .section_1 {
     flex-direction: column;
   }
-  .humburger_menu_icon {
-    display: block;
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    width: 54px;
-    padding: 5px;
-    aspect-ratio: 1;
-    img {
-      width: 100%;
+  nav {
+    button.humburger_menu_btn {
+      display: block;
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      width: 54px;
+      padding: 5px;
       aspect-ratio: 1;
+      svg {
+        width: 100%;
+        aspect-ratio: 1;
+      }
     }
   }
-
   .sections_menu {
     position: absolute;
     top: 70px;
@@ -253,7 +299,7 @@ footer {
     align-items: center;
     transition: transform 1s linear;
     li {
-      background: #866ee0;
+      background: light.$primary;
       width: 100px;
       padding: 5px;
       text-align: center;
@@ -284,7 +330,38 @@ footer {
         height: 100%;
         top: 0;
         right: -10px;
-        background: #866ee0;
+        background: light.$primary;
+      }
+    }
+  }
+  section {
+    + section:nth-child(2n) {
+      h2 {
+        writing-mode: vertical-lr;
+      }
+    }
+  }
+  .theme_list {
+    top: 0.5rem;
+    left: 1rem;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    // transition: translate 0.5s linear;
+    .theme_list_item {
+      width: 30px;
+      height: 30px;
+      margin-block: auto;
+      &:nth-child(1) {
+        transform: translateX(-95px);
+      }
+      &:nth-child(2) {
+        transform: translateX(-65px);
+      }
+      &:nth-child(3) {
+        transform: translateX(-30px);
+      }
+      &.checked {
+        transform: translateX(0);
       }
     }
   }

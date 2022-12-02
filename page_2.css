@@ -36,7 +36,7 @@ a {
 .shape.empty_square {
   width: 100px;
   height: 100px;
-  border: 5px solid #ffd0dc;
+  border: 5px solid #ff6b90;
 }
 .shape.triangle {
   width: 100px;
@@ -61,6 +61,7 @@ a {
   position: absolute;
   top: 0;
   left: 0;
+  stroke: url(#progress_light_mode);
 }
 .skills .skill svg circle {
   fill: none;
@@ -69,56 +70,170 @@ a {
   stroke-dashoffset: 472;
   transition: stroke-dashoffset 6s linear;
 }
-.skills .skill.skill_1 {
-  stroke: url(#progress_bar_1);
-}
-.skills .skill.skill_2 {
-  stroke: url(#progress_bar_2);
-}
-.skills .skill.skill_3 {
-  stroke: url(#progress_bar_3);
-}
-.skills .skill.skill_4 {
-  stroke: url(#progress_bar_4);
-}
-.skills .skill.skill_5 {
-  stroke: url(#progress_bar_5);
-}
-.skills .skill.skill_6 {
-  stroke: url(#progress_bar_6);
+
+.v_hidden {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 body.dark_mode {
-  background-image: radial-gradient(#ffca3c 0.5px, transparent 0.5px), radial-gradient(#ffca3c 0.5px, #1a1a1a 0.5px);
-  color: white;
+  background-image: radial-gradient(hsl(51deg, 100%, 70%) 0.5px, transparent 0.5px), radial-gradient(hsl(51deg, 100%, 70%) 0.5px, #171120 0.5px);
+  color: #171120;
 }
-body.dark_mode nav {
-  background: hsla(253deg, 65%, 65%, 0.9);
+body.dark_mode header nav {
+  background: hsl(51deg, 100%, 70%);
 }
-body.dark_mode nav a {
-  color: white;
+body.dark_mode header nav .humburger_menu_btn svg {
+  fill: #171120;
+}
+body.dark_mode header nav li {
+  background: hsl(51deg, 100%, 70%);
+}
+body.dark_mode header nav li::after {
+  background: hsl(51deg, 100%, 70%);
+}
+body.dark_mode header nav li a {
+  color: #171120;
 }
 body.dark_mode main {
-  background-color: hsla(0deg, 0%, 100%, 0.1);
-  box-shadow: 0 0 1rem 3px rgba(0, 0, 0, 0.1), 0 0 1rem -3px rgba(0, 0, 0, 0.1);
+  background-color: hsla(0deg, 0%, 90%, 0.05);
 }
 body.dark_mode main section:nth-child(2n) p {
-  border-left: 2px solid white;
+  border-left: 2px solid #171120;
+}
+body.dark_mode main section:nth-child(2n)::before {
+  background: hsl(51deg, 100%, 70%);
+}
+body.dark_mode main .section_1 {
+  color: #fbfbfb;
 }
 body.dark_mode main .section_1 .img_border {
+  background: hsl(51deg, 100%, 70%);
+  opacity: 0.6;
   box-shadow: none;
+}
+body.dark_mode main .section_1 .img_border .place_holder {
+  fill: #171120;
 }
 body.dark_mode main .section_1 p {
   border-right: 2px solid white;
 }
 body.dark_mode main .section_3 .skill {
-  color: white;
+  color: #fbfbfb;
   box-shadow: none;
-  background-color: hsla(0deg, 100%, 100%, 0.1);
+  background-color: hsla(0deg, 100%, 100%, 0.2);
 }
+body.dark_mode main .section_3 .skill svg {
+  stroke: url(#progress_bar_dark_mode);
+}
+body.dark_mode .theme_list {
+  background-color: #1a1a1a;
+  outline: 2px solid hsl(51deg, 100%, 70%);
+}
+body.dark_mode .theme_list .theme_list_item,
+body.dark_mode .theme_list .theme_list_btn {
+  background-color: #171120;
+  outline: 1px solid hsl(51deg, 100%, 70%);
+}
+body.dark_mode .theme_list .theme_list_item svg,
+body.dark_mode .theme_list .theme_list_btn svg {
+  fill: white;
+}
+body.dark_mode .theme_list .theme_list_item.active svg {
+  fill: yellow;
+}
+
+body.color_mode {
+  background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #767cf9 0.5px);
+  color: #171120;
+}
+body.color_mode header nav {
+  background: #444cf7;
+}
+body.color_mode header nav .humburger_menu_btn svg {
+  fill: #171120;
+}
+body.color_mode header nav li {
+  background: #444cf7;
+}
+body.color_mode header nav li::after {
+  background: #444cf7;
+}
+body.color_mode header nav li a {
+  color: #171120;
+}
+body.color_mode main {
+  background-color: hsla(0deg, 0%, 90%, 0.1);
+}
+body.color_mode main section:nth-child(2n) p {
+  border-left: 2px solid #171120;
+}
+body.color_mode main section:nth-child(2n)::before {
+  background: #444cf7;
+}
+body.color_mode main .section_1 {
+  color: #171120;
+}
+body.color_mode main .section_1 .img_border {
+  background: #444cf7;
+}
+body.color_mode main .section_1 .img_border .place_holder {
+  fill: #171120;
+}
+body.color_mode main .section_1 p {
+  border-right: 2px solid #171120;
+}
+body.color_mode main .section_3 .skill {
+  color: #fbfbfb;
+  box-shadow: none;
+  background-color: hsla(0deg, 100%, 100%, 0.2);
+}
+body.color_mode main .section_3 .skill svg {
+  stroke: url(#progress_bar_color_mode);
+}
+body.color_mode .theme_list {
+  background-color: #767cf9;
+  outline: 2px solid #444cf7;
+}
+body.color_mode .theme_list .theme_list_item,
+body.color_mode .theme_list .theme_list_btn {
+  background-color: #444cf7;
+  outline: 1px solid #444cf7;
+}
+body.color_mode .theme_list .theme_list_item svg,
+body.color_mode .theme_list .theme_list_btn svg {
+  fill: white;
+}
+body.color_mode .theme_list .theme_list_item.active svg {
+  fill: yellow;
+}
+body.color_mode .shape.empty_circle {
+  border: 5px solid #4df744;
+}
+body.color_mode .shape.empty_square {
+  border: 5px solid #ff1111;
+}
+body.color_mode .shape.triangle {
+  background-color: #ffca3c;
+}
+body.color_mode .shape.triangle.pentagon {
+  background-color: #fd6036;
+}
+
+* {
+  transition: background-color 0.5s linear, color 0.3s linear;
+}
+
 body {
-  position: relative;
   width: 100%;
+  height: 100%;
+  min-height: 100vh;
   background-color: #ece9fe;
   opacity: 0.8;
   background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
@@ -131,7 +246,7 @@ header {
   margin-inline: auto;
 }
 header nav {
-  transition: translate 0.4s linear;
+  transition: translate 0.5s linear;
   position: fixed;
   top: 0;
   width: min(768px, 100%);
@@ -143,11 +258,20 @@ header nav {
   background: hsla(253deg, 65%, 65%, 0.6);
   box-shadow: 0 0 1rem 3px rgba(0, 0, 0, 0.1), 0 0 1rem -3px rgba(0, 0, 0, 0.1);
 }
+header nav .humburger_menu_btn {
+  background-color: transparent;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+header nav .humburger_menu_btn:hover {
+  box-shadow: inset 0 0 16px 100% rgba(255, 255, 255, 0.6);
+}
 header nav ul {
-  width: 320px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 1.5rem;
   font-size: 1.5rem;
   padding-top: 10px;
@@ -158,10 +282,6 @@ header nav ul a {
 }
 header nav ul a:hover {
   color: #ffca3c;
-}
-
-.humburger_menu_icon {
-  display: none;
 }
 
 .bg_animation {
@@ -192,14 +312,14 @@ main section + section:nth-child(2n) {
   justify-content: center;
   align-items: center;
   margin-block: 3rem;
-  gap: 1rem;
 }
 main section + section:nth-child(2n) h2 {
   padding: 1rem;
+  width: calc(19% - 0.5rem);
 }
 main section + section:nth-child(2n) p {
   border-left: 2px solid black;
-  padding: 8px;
+  padding: 0.5rem;
 }
 main section + section:nth-child(2n)::before {
   content: "";
@@ -235,8 +355,13 @@ main .section_1 .img_border {
   box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
   background: hsla(253deg, 65%, 65%, 0.6);
 }
+main .section_1 .img_border .place_holder,
 main .section_1 .img_border img {
   width: 100%;
+  max-width: 200px;
+  height: 100%;
+  height: 200px;
+  aspect-ratio: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -300,23 +425,26 @@ footer ul svg {
 }
 
 .theme_list {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  position: fixed;
+  top: calc(70px + 1rem);
+  right: calc((100% - 768px) / 2 + 1rem);
   z-index: 999;
   width: 50px;
   height: 50px;
   border-radius: 25px;
   display: flex;
   padding: 5px;
-  background-color: #e5e5f7;
+  background-color: #ece9fe;
+  outline: 2px solid #866ee0;
   justify-content: flex-end;
-  transition: width 1s linear;
+  transition: width 1s linear, translate 0.5s linear;
+  transform-origin: right;
 }
 .theme_list.checked {
   width: 160px;
   gap: 5px;
 }
+.theme_list .theme_list_item,
 .theme_list .theme_list_btn {
   display: flex;
   justify-content: center;
@@ -327,25 +455,54 @@ footer ul svg {
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: #866ee0;
-  transition: rotate 2s linear;
+  transition: transform 1s linear;
 }
-.theme_list .theme_list_btn:not(:last-child) {
+.theme_list .theme_list_item.checked,
+.theme_list .theme_list_btn.checked {
+  transform: rotate(225deg);
+}
+.theme_list .theme_list_item svg,
+.theme_list .theme_list_btn svg {
+  fill: white;
+}
+.theme_list .theme_list_btn {
+  z-index: 9999;
+}
+.theme_list .theme_list_item {
   width: 30px;
   height: 30px;
   margin-block: auto;
 }
-.theme_list .theme_list_btn.checked {
-  transform: rotate(225deg);
+.theme_list .theme_list_item:nth-child(1) {
+  transition: transform 1.1s linear;
 }
-.theme_list .theme_list_btn svg {
-  fill: white;
+.theme_list .theme_list_item:nth-child(2) {
+  transition: transform 0.8s linear;
+}
+.theme_list .theme_list_item:nth-child(3) {
+  transition: transform 0.4s linear;
+}
+.theme_list .theme_list_item:nth-child(1) {
+  transform: translateX(95px);
+}
+.theme_list .theme_list_item:nth-child(2) {
+  transform: translateX(65px);
+}
+.theme_list .theme_list_item:nth-child(3) {
+  transform: translateX(30px);
+}
+.theme_list .theme_list_item.checked {
+  transform: translateX(0);
+}
+.theme_list .theme_list_item.active svg {
+  fill: yellow;
 }
 
-@media (max-width: 486px) {
+@media (max-width: 768px) {
   .section_1 {
     flex-direction: column;
   }
-  .humburger_menu_icon {
+  nav button.humburger_menu_btn {
     display: block;
     position: absolute;
     top: 0.5rem;
@@ -354,7 +511,7 @@ footer ul svg {
     padding: 5px;
     aspect-ratio: 1;
   }
-  .humburger_menu_icon img {
+  nav button.humburger_menu_btn svg {
     width: 100%;
     aspect-ratio: 1;
   }
@@ -402,5 +559,32 @@ footer ul svg {
     top: 0;
     right: -10px;
     background: #866ee0;
+  }
+  section + section:nth-child(2n) h2 {
+    -ms-writing-mode: tb-lr;
+        writing-mode: vertical-lr;
+  }
+  .theme_list {
+    top: 0.5rem;
+    left: 1rem;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+  .theme_list .theme_list_item {
+    width: 30px;
+    height: 30px;
+    margin-block: auto;
+  }
+  .theme_list .theme_list_item:nth-child(1) {
+    transform: translateX(-95px);
+  }
+  .theme_list .theme_list_item:nth-child(2) {
+    transform: translateX(-65px);
+  }
+  .theme_list .theme_list_item:nth-child(3) {
+    transform: translateX(-30px);
+  }
+  .theme_list .theme_list_item.checked {
+    transform: translateX(0);
   }
 }/*# sourceMappingURL=page_2.css.map */

@@ -6,6 +6,7 @@
       position: absolute;
       top: 0;
       left: 0;
+      stroke: url(#progress_light_mode);
       circle {
         fill: none;
         stroke-width: 20px;
@@ -14,23 +15,6 @@
         transition: stroke-dashoffset 6s linear;
       }
     }
-    &.skill_1 {
-      stroke: url(#progress_bar_1);
-    }
-    &.skill_2 {
-      stroke: url(#progress_bar_2);
-    }
-    &.skill_3 {
-      stroke: url(#progress_bar_3);
-    }
-    &.skill_4 {
-      stroke: url(#progress_bar_4);
-    }
-    &.skill_5 {
-      stroke: url(#progress_bar_5);
-    }
-    &.skill_6 {
-      stroke: url(#progress_bar_6);
-    }
+   
   }
 }

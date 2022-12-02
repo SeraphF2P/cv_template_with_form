@@ -85,9 +85,15 @@ window.onscroll = () => {
     if (nav_is_visible) {
         nav.style.translate = '0px -70px';
         nav_is_visible = !nav_is_visible;
+        if (window.innerWidth < 768) {
+            theme_list.style.translate = '0px -70px';
+        }
     }
     else if (nav_is_visible == false) {
-        setTimeout(() => { nav.style.translate = '0px 0px'; }, 200);
+        setTimeout(() => {
+            nav.style.translate = '0px 0px';
+            theme_list.style.translate = '0px 0px';
+        }, 500);
         nav_is_visible = !nav_is_visible;
     }
 };
@@ -131,22 +137,69 @@ function loop() {
     setTimeout(loop, time);
 }
 loop();
-const humburger_menu_icon = document.querySelector('.humburger_menu_icon');
+const humburger_menu_btn = document.querySelector('.humburger_menu_btn');
+const humburger_menu_icon = humburger_menu_btn === null || humburger_menu_btn === void 0 ? void 0 : humburger_menu_btn.querySelector('svg');
 const sections_menu = document.querySelector('.sections_menu');
 const sections_list_items = Array.from(sections_menu.querySelectorAll('li'));
-humburger_menu_icon === null || humburger_menu_icon === void 0 ? void 0 : humburger_menu_icon.addEventListener('click', () => {
+humburger_menu_btn === null || humburger_menu_btn === void 0 ? void 0 : humburger_menu_btn.addEventListener('click', () => {
     sections_list_items.forEach(li => li.classList.toggle('show'));
+    humburger_menu_icon === null || humburger_menu_icon === void 0 ? void 0 : humburger_menu_icon.toggleAttribute('aria-hidden', false);
 });
 sections_list_items.forEach(li => {
     li.addEventListener('click', () => {
         sections_list_items.forEach(li => li.classList.remove('show'));
     });
 });
-const theme_list_btns = Array.from(document.querySelectorAll('.theme_list_btn'));
+const theme_list_btn = document.querySelector('.theme_list_btn');
 const theme_list = document.querySelector('.theme_list');
-theme_list_btns === null || theme_list_btns === void 0 ? void 0 : theme_list_btns.forEach(item => {
-    item.addEventListener('click', () => {
-        item.classList.toggle('checked');
-        theme_list === null || theme_list === void 0 ? void 0 : theme_list.classList.toggle('checked');
-    });
+const theme_list_items = Array.from(document.querySelectorAll('.theme_list_item'));
+theme_list_btn === null || theme_list_btn === void 0 ? void 0 : theme_list_btn.addEventListener('click', () => {
+    theme_list_btn.classList.toggle('checked');
+    theme_list === null || theme_list === void 0 ? void 0 : theme_list.classList.toggle('checked');
+    theme_list_items === null || theme_list_items === void 0 ? void 0 : theme_list_items.forEach(item => item.classList.toggle('checked'));
+});
+const dark_mode_btn = theme_list === null || theme_list === void 0 ? void 0 : theme_list.querySelector('.dark_mode');
+const light_mode_btn = theme_list === null || theme_list === void 0 ? void 0 : theme_list.querySelector('.light_mode');
+const color_mode_btn = theme_list === null || theme_list === void 0 ? void 0 : theme_list.querySelector('.color_mode');
+const body = document.querySelector('body');
+function activate_Theme() {
+    let theme_name = this.getAttribute('class').split(' ')[1];
+    dark_mode_btn.classList.remove('active');
+    light_mode_btn.classList.remove('active');
+    color_mode_btn.classList.remove('active');
+    this.classList.add('active');
+    if ((body === null || body === void 0 ? void 0 : body.getAttribute('class')) != theme_name) {
+        body === null || body === void 0 ? void 0 : body.setAttribute('class', `${theme_name}`);
+    }
+    else {
+        body === null || body === void 0 ? void 0 : body.setAttribute('class', '');
+    }
+}
+dark_mode_btn.addEventListener('click', activate_Theme);
+light_mode_btn.addEventListener('click', activate_Theme);
+color_mode_btn.addEventListener('click', activate_Theme);
+let X_d;
+let Y_d;
+let choosen;
+function drag_it() {
+    choosen = theme_list;
+    document.onmousemove = (e) => {
+        X_d = e.pageX;
+        Y_d = e.pageY;
+        if (choosen != null) {
+            choosen.style.right = `calc(100% - ${X_d + 25}px)`;
+            choosen.style.marginTop = `calc(${Y_d - 125}px)`;
+        }
+    };
+}
+function drop_it() {
+    document.onmouseup = () => {
+        choosen = null;
+    };
+}
+theme_list.addEventListener('dragstart', drag_it);
+theme_list.addEventListener('dragend', drop_it);
+theme_list.addEventListener('dragover', drop_it);
+theme_list.addEventListener('dragover', (e) => {
+    e.preventDefault();
 });

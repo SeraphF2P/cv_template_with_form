@@ -14,14 +14,25 @@
 
     <title>Document</title>
   </head>
-  <body>
+  <body class="light_mode">
     <div class="bg_animation"></div>
     <header>
       <nav class="nav_bar">
-        <div class="humburger_menu_icon">
-          <img src="./svg/bx-menu-alt-right.svg" alt="menu" />
-        </div>
-        <ul class="sections_menu">
+        <button class="humburger_menu_btn" aria-controls="sections_menu">
+          <span class="v_hidden">Menu</span>
+          <svg
+            class="humburger_menu_icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="#4828bd"
+            width="48"
+            height="48"
+            aria-hidden="true"
+          >
+            <path d="M4 6h16v2H4zm4 5h12v2H8zm5 5h7v2h-7z"></path>
+          </svg>
+        </button>
+        <ul class="sections_menu" id="sections_menu">
           <li><a href="#home">home</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#bio">Bio</a></li>
@@ -34,7 +45,19 @@
     <main>
       <section class="section_1" id="home">
         <div class="img_border">
-          <img src="./svg/bx-user.svg" alt="user_icon" />
+          <svg
+            class="place_holder"
+            fill="#866ee0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"
+            />
+          </svg>
+          <!-- <img src="./svg/bx-user.svg" alt="user_photo" /> -->
         </div>
         <div class="aside">
           <h1>john smith</h1>
@@ -65,9 +88,17 @@
               height="160px"
             >
               <defs>
-                <linearGradient id="progress_bar_1">
+                <linearGradient id="progress_light_mode">
                   <stop offset="0%" stop-color="#866ee0" />
                   <stop offset="100%" stop-color="#c0b6fc" />
+                </linearGradient>
+                <linearGradient id="progress_bar_dark_mode">
+                  <stop offset="0%" stop-color="#999900" />
+                  <stop offset="100%" stop-color="#ffe866" />
+                </linearGradient>
+                <linearGradient id="progress_bar_color_mode">
+                  <stop offset="0%" stop-color="#767cf9" />
+                  <stop offset="100%" stop-color="#444cf7" />
                 </linearGradient>
               </defs>
               <circle cx="80" cy="80" r="70" stroke-linecap="round" />
@@ -82,12 +113,6 @@
               width="160px"
               height="160px"
             >
-              <defs>
-                <linearGradient id="progress_bar_2">
-                  <stop offset="0%" stop-color="#866ee0" />
-                  <stop offset="100%" stop-color="#c0b6fc" />
-                </linearGradient>
-              </defs>
               <circle cx="80" cy="80" r="70" stroke-linecap="round" />
             </svg>
           </div>
@@ -100,12 +125,6 @@
               width="160px"
               height="160px"
             >
-              <defs>
-                <linearGradient id="progress_bar_3">
-                  <stop offset="0%" stop-color="#866ee0" />
-                  <stop offset="100%" stop-color="#c0b6fc" />
-                </linearGradient>
-              </defs>
               <circle cx="80" cy="80" r="70" stroke-linecap="round" />
             </svg>
           </div>
@@ -118,12 +137,6 @@
               width="160px"
               height="160px"
             >
-              <defs>
-                <linearGradient id="progress_bar_4">
-                  <stop offset="0%" stop-color="#866ee0" />
-                  <stop offset="100%" stop-color="#c0b6fc" />
-                </linearGradient>
-              </defs>
               <circle cx="80" cy="80" r="70" stroke-linecap="round" />
             </svg>
           </div>
@@ -136,12 +149,6 @@
               width="160px"
               height="160px"
             >
-              <defs>
-                <linearGradient id="progress_bar_5">
-                  <stop offset="0%" stop-color="#866ee0" />
-                  <stop offset="100%" stop-color="#c0b6fc" />
-                </linearGradient>
-              </defs>
               <circle cx="80" cy="80" r="70" stroke-linecap="round" />
             </svg>
           </div>
@@ -154,12 +161,6 @@
               width="160px"
               height="160px"
             >
-              <defs>
-                <linearGradient id="progress_bar_6">
-                  <stop offset="0%" stop-color="#866ee0" />
-                  <stop offset="100%" stop-color="#c0b6fc" />
-                </linearGradient>
-              </defs>
               <circle cx="80" cy="80" r="70" stroke-linecap="round" />
             </svg>
           </div>
@@ -243,8 +244,8 @@
         </li>
       </ul>
     </footer>
-    <div class="theme_list checked">
-      <div class="theme_list_btn light_mode">
+    <div class="theme_list" draggable="true">
+      <div class="theme_list_item light_mode active">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -257,7 +258,7 @@
           ></path>
         </svg>
       </div>
-      <div class="theme_list_btn dark_mode">
+      <div class="theme_list_item dark_mode">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -270,7 +271,7 @@
           ></path>
         </svg>
       </div>
-      <div class="theme_list_btn color_theme">
+      <div class="theme_list_item color_mode">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -287,7 +288,7 @@
           <circle cx="14.5" cy="7.5" r="1.5"></circle>
         </svg>
       </div>
-      <div class="theme_list_btn checked">
+      <div class="theme_list_btn" >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="48"

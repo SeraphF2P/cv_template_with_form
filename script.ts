@@ -85,14 +85,21 @@ function progress (){
  
 }
 let nav_is_visible = true;
-const nav = document.querySelector('.nav_bar') as HTMLDivElement;
+const nav = document.querySelector('.nav_bar') as HTMLElement;
 window.onscroll= ()=>{
     progress()  
     if(nav_is_visible){
       nav.style.translate = '0px -70px';
       nav_is_visible = !nav_is_visible;
+    if(window.innerWidth < 768){
+      theme_list.style.translate = '0px -70px';
+    }
+
     }else if(nav_is_visible == false ){
-      setTimeout(()=>{nav.style.translate = '0px 0px';},200);
+      setTimeout(()=>{
+        nav.style.translate = '0px 0px';
+        theme_list.style.translate = '0px 0px';
+      },500);
       nav_is_visible = !nav_is_visible;
     }
   }
@@ -147,11 +154,13 @@ window.onscroll= ()=>{
     loop()
 
 
-    const humburger_menu_icon = document.querySelector('.humburger_menu_icon');
+    const humburger_menu_btn = document.querySelector('.humburger_menu_btn');
+    const humburger_menu_icon = humburger_menu_btn?.querySelector('svg');
     const sections_menu = document.querySelector('.sections_menu') as HTMLDivElement;
     const sections_list_items = Array.from(sections_menu.querySelectorAll('li'));
-    humburger_menu_icon?.addEventListener('click', () =>{
+    humburger_menu_btn?.addEventListener('click', () =>{
         sections_list_items.forEach(li=> li.classList.toggle('show'))
+        humburger_menu_icon?.toggleAttribute('aria-hidden',false)
     })
     sections_list_items.forEach(li => {
         li.addEventListener('click', () => {
@@ -159,11 +168,60 @@ window.onscroll= ()=>{
         });
     })
 
-    const theme_list_btns = Array.from(document.querySelectorAll('.theme_list_btn'));
-    const theme_list = document.querySelector('.theme_list');
-    theme_list_btns?.forEach(item => { 
-      item.addEventListener('click', () => {
-        item.classList.toggle('checked');
-        theme_list?.classList.toggle('checked');
-      })
+    const theme_list_btn = document.querySelector('.theme_list_btn');
+    const theme_list = document.querySelector('.theme_list') as HTMLButtonElement;
+    const theme_list_items = Array.from(document.querySelectorAll('.theme_list_item'));
+    theme_list_btn?.addEventListener('click', () => {
+      theme_list_btn.classList.toggle('checked');
+      theme_list?.classList.toggle('checked');
+      theme_list_items?.forEach(item=>item.classList.toggle('checked')); 
     })
+    const dark_mode_btn = theme_list?.querySelector('.dark_mode') as HTMLButtonElement;
+    const light_mode_btn = theme_list?.querySelector('.light_mode') as HTMLButtonElement;
+    const color_mode_btn = theme_list?.querySelector('.color_mode') as HTMLButtonElement;
+    const body = document.querySelector('body');
+
+function activate_Theme (this: any){
+  let theme_name = this.getAttribute('class').split(' ')[1];
+  dark_mode_btn.classList.remove('active');
+  light_mode_btn.classList.remove('active');
+  color_mode_btn.classList.remove('active');
+  this.classList.add('active');
+if(body?.getAttribute('class') != theme_name){
+  body?.setAttribute('class',`${theme_name}`);
+}else{
+  body?.setAttribute('class','');
+}
+}
+    dark_mode_btn.addEventListener('click',activate_Theme);
+    light_mode_btn.addEventListener('click',activate_Theme);
+    color_mode_btn.addEventListener('click',activate_Theme);
+
+
+let X_d: number;
+let Y_d: number;
+let choosen: HTMLButtonElement | null;
+
+function drag_it (){ 
+  choosen = theme_list;
+  document.onmousemove = (e)=>{
+    X_d = e.pageX;
+    Y_d= e.pageY;
+    if(choosen != null){
+      choosen.style.right = `calc(100% - ${X_d + 25}px)` ;
+      choosen.style.marginTop = `calc(${Y_d - 125}px)`;
+    }
+  
+  }
+}
+function drop_it (){
+  document.onmouseup = ()=>{
+    choosen = null
+  }
+}
+theme_list.addEventListener('dragstart',drag_it)
+theme_list.addEventListener('dragend',drop_it)
+theme_list.addEventListener('dragover',drop_it)
+theme_list.addEventListener('dragover',(e)=>{
+  e.preventDefault()
+})

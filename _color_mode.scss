@@ -1,9 +1,9 @@
-$primary: hsl(51, 100%, 70%);
-$secondary: #fe9ecc;
-$third: #ffd0dc;
+$primary: #444cf7;
+$primary_gradiant: #767cf9;
+$secondary: #4df744;
+$third: #ff1111;
 $fourth: #ffca3c;
-$fifth: #ece9fe;
-$fifth_2: #4828bd;
+$fifth: #fd6036;
 $soft-gray: #e3e3e3;
 $white: #fbfbfb;
 $black: #171120;
@@ -11,9 +11,9 @@ $border: 1rem solid rgb(0, 0, 0, 0.2);
 $shadow: 0 0 1rem 3px rgb(0, 0, 0, 0.1), 0 0 1rem -3px rgb(0, 0, 0, 0.1);
 
 body {
-  &.dark_mode {
+  &.color_mode {
     background-image: radial-gradient($primary 0.5px, transparent 0.5px),
-      radial-gradient($primary 0.5px, $black 0.5px);
+      radial-gradient($primary 0.5px, $primary_gradiant 0.5px);
     color: $black;
     header {
       nav {
@@ -35,7 +35,7 @@ body {
       }
     }
     main {
-      background-color: hsl(0, 0%, 90%, 0.05);
+      background-color: hsl(0, 0%, 90%, 0.1);
       section {
         &:nth-child(2n) {
           p {
@@ -47,17 +47,15 @@ body {
         }
       }
       .section_1 {
-        color: $white;
+        color: $black;
         .img_border {
           background: $primary;
-          opacity: 0.6;
-          box-shadow: none;
           .place_holder {
             fill: $black;
           }
         }
         p {
-          border-right: 2px solid white;
+          border-right: 2px solid $black;
         }
       }
       .section_3 {
@@ -66,7 +64,7 @@ body {
           box-shadow: none;
           background-color: hsl(0, 100%, 100%, 0.2);
           svg {
-            stroke: url(#progress_bar_dark_mode);
+            stroke: url(#progress_bar_color_mode);
           }
         }
       }
@@ -74,11 +72,11 @@ body {
     footer {
     }
     .theme_list {
-      background-color: #1a1a1a;
+      background-color: $primary_gradiant;
       outline: 2px solid $primary;
       .theme_list_item,
       .theme_list_btn {
-        background-color: $black;
+        background-color: $primary;
         outline: 1px solid $primary;
         svg {
           fill: white;
@@ -89,6 +87,20 @@ body {
           svg {
             fill: yellow;
           }
+        }
+      }
+    }
+    .shape {
+      &.empty_circle {
+        border: 5px solid $secondary;
+      }
+      &.empty_square {
+        border: 5px solid $third;
+      }
+      &.triangle {
+        background-color: $fourth;
+        &.pentagon {
+          background-color: $fifth;
         }
       }
     }

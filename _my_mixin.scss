@@ -1,0 +1,37 @@
+@mixin d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin d-flex-center-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@mixin d-grid-center {
+  display: grid;
+  place-content: center;
+}
+@mixin d-grid-column {
+  display: grid;
+  grid-auto-columns: repeat(auto-fit, 1fr);
+}
+
+@mixin new_page {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+@mixin btn {
+  background-color: transparent;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    box-shadow: inset 0 0 16px 100% rgb(255, 255, 255, 0.6);
+  }
+}
