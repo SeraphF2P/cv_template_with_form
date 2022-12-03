@@ -1,0 +1,133 @@
+@use "./theme_1" as theme1;
+
+.sign_up_section {
+  .modal-dialog-centered {
+    display: flex;
+    justify-content: center;
+    .modal-content {
+      width: 300px;
+      height: 430px;
+      border-radius: 10px;
+      overflow: hidden;
+      .progress_bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 200px;
+        margin-top: 3rem;
+        margin-left: 66px;
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.3rem;
+          font-weight: bolder;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: theme1.$fifth;
+          z-index: 1;
+          outline: 2px solid theme1.$fifth_2;
+          position: relative;
+          transition: transform 0.3s linear;
+          transform: scaleX(1);
+          backface-visibility: hidden;
+          &.checked {
+            transform: scaleX(0);
+          }
+          + div {
+            position: relative;
+            backface-visibility: hidden;
+            transform: scaleX(0);
+            z-index: 10;
+            transition: transform 0.3s linear 0.3s;
+            transform-origin: -16px;
+            > svg {
+              position: relative;
+              left: -33.5px;
+              width: 32px;
+              height: 32px;
+              aspect-ratio: 1;
+              border-radius: 50%;
+              border: 2px solid theme1.$fifth;
+              background-color: theme1.$fifth_2;
+            }
+            &.checked {
+              transform: scaleX(1);
+            }
+          }
+        }
+        .step_line {
+          width: 0px;
+          height: 4px;
+          background-color: theme1.$fifth;
+          left: 97px;
+          position: absolute;
+          transition: width 1s linear;
+          transform-origin: left;
+          &.num_2 {
+            left: 166px;
+          }
+          &.checked {
+          width: 36px;
+           
+          }
+        }
+      }
+      .modal-body {
+        position: relative;
+        width: 100%;
+        display: flex;
+        padding-top: 1rem;
+        #form_carousel {
+          width: 100%;
+          .carousel-inner {
+            .carousel-item {
+              padding: 1rem;
+              gap: 1rem;
+              .form-floating {
+                margin-bottom: 1rem;
+              }
+              input {
+                position: relative;
+                transition: box-shadow 0.3s linear;
+              }
+              .input_error_message {
+                display: none;
+                color: hsl(17, 98%, 61%);
+                position: absolute;
+                left: 0;
+                font-size: 0.75rem;
+                width: 100%;
+                height: 0.75rem;
+              }
+            }
+          }
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+          width: 100px;
+          height: 40px;
+          top: 260px;
+        }
+        .carousel-control-prev {
+          left: 1rem;
+        }
+        .carousel-control-next {
+          right: 1rem;
+        }
+        [form="sign_up"] {
+          right: 0;
+          position: absolute;
+          width: 100px;
+          top: 260px;
+        }
+      }
+    }
+  }
+}
+.btn-secondary {
+  background: white;
+  border: 2px solid theme1.$soft-gray;
+  color: theme1.$black;
+}

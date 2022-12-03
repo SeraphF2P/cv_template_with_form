@@ -315,11 +315,11 @@ main section + section:nth-child(2n) {
 }
 main section + section:nth-child(2n) h2 {
   padding: 1rem;
-  width: calc(19% - 0.5rem);
 }
 main section + section:nth-child(2n) p {
   border-left: 2px solid black;
   padding: 0.5rem;
+  max-width: calc(768px - 30%);
 }
 main section + section:nth-child(2n)::before {
   content: "";

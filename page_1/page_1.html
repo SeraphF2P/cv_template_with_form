@@ -28,253 +28,291 @@
       src="../images/pexels-rodion-kutsaiev-9436715.jpg"
       alt="background_image"
     />
-    <div class="first_page">
-      <div class="landing">
-        <div class="profile">
-          <img src="../svg/bx-user.svg" alt="user_icon" />
-        </div>
-        <div
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+    <!-- log in section start -->
+    <div class="log_in_section">
+      <div class="img_border">
+        <svg
+          class="place_holder"
+          fill="#866ee0"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
         >
-          Log in
+          <path
+            d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"
+          />
+        </svg>
+        <!-- <img src="" alt="user_icon" /> -->
+      </div>
+      <div class="auto_signup_option">
+        <div class="fa-brands fa-facebook"></div>
+        <div class="fa-brands fa-google"></div>
+        <div class="fa-brands fa-yahoo"></div>
+        <div class="fa-brands fa-twitter"></div>
+      </div>
+      <form action="../page_2.html" method="get">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="log_in_user_name_email"
+            placeholder="enter your email or username"
+            autocomplete
+            required
+          />
+          <label for="log_in_user_name_email">username</label>
         </div>
-        <div
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal2"
+
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            id="Password_log_in_password"
+            placeholder="Password"
+            min="6"
+            max="15"
+            pattern="\w*?\d*?"
+            autocomplete
+            required
+          />
+          <label for="Password_log_in_password">Password</label>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Log in" />
+      </form>
+      <div class="go_to_sign_up">
+        don't have an account?
+        <span data-bs-toggle="modal" data-bs-target="#sign_up_modal"
+          >Sign Up</span
         >
-          sign up
-        </div>
       </div>
     </div>
-    <div class="form_section">
-      <!-- log in section start -->
-      <div class="log_in_section">
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <h1>Log in</h1>
-              <div class="row auto_signup_option">
-                <div class="fa-brands fa-facebook"></div>
-                <div class="fa-brands fa-google"></div>
-                <div class="fa-brands fa-yahoo"></div>
-                <div class="fa-brands fa-microsoft"></div>
-              </div>
-              <div class="row divider">or</div>
-
-              <form action="../page_2.html" method="get">
-                <div class="form-floating">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="log_in_user_name_email"
-                    placeholder="enter your email or username"
-                    required
-                  />
-                  <label for="log_in_user_name_email">username</label>
-                </div>
-
-                <div class="form-floating">
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="Password_log_in_password"
-                    placeholder="Password"
-                    min="6"
-                    max="15"
-                    pattern="\w*?\d*?"
-                    required
-                  />
-                  <label for="Password_log_in_password">Password</label>
-                </div>
-                <div>
-                  don't have an account?
-                  <a data-bs-toggle="modal" data-bs-target="#exampleModal2"
-                    >Sign Up</a
-                  >
-                </div>
-                <div class="row">
-                  <button
-                    type="button"
-                    class="btn btn-secondary btn_close"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <input type="submit" class="btn btn-primary" value="Log in" />
-                </div>
-              </form>
+    <!-- log in section end -->
+    <!-- sign_up_section start -->
+    <div
+      class="modal fade sign_up_section"
+      id="sign_up_modal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="progress_bar">
+            <span class="step_1">1</span>
+            <div class="step_1">
+              <svg
+                class="step_1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="#fff"
+                width="24"
+                height="24"
+              >
+                <path
+                  d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"
+                ></path>
+              </svg>
+            </div>
+            <div class="step_line num_1"></div>
+            <span class="step_2">2</span>
+            <div class="step_2">
+              <svg
+                class="step_2"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="#fff"
+                width="24"
+                height="24"
+              >
+                <path
+                  d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"
+                ></path>
+              </svg>
+            </div>
+            <div class="step_line num_2"></div>
+            <span class="step_3">3</span>
+            <div class="step_3">
+              <svg
+                class="step_3"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="#fff"
+                width="24"
+                height="24"
+              >
+                <path
+                  d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"
+                ></path>
+              </svg>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- log in section end -->
-      <!-- sign_up_section start -->
-      <div
-        class="modal fade sign_up_section"
-        id="exampleModal2"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="progress_bar">
-              <span class="step_1">1</span>
-              <img class="step_1" src="../svg/bx-check.svg" alt="" />
-              <span class="step_2">2</span>
-              <img class="step_2" src="../svg/bx-check.svg" alt="" />
-              <span class="step_3">3</span>
-              <img class="step_3" src="../svg/bx-check.svg" alt="" />
-              <div class="line"></div>
-            </div>
-            <form id="sign_up" method="GET" action="/" class="modal-body">
-              <div class="steps_bodys">
-                <div class="step_body num_1">
-                  <div class="form-floating">
-                    <input
-                      id="full_name_input"
-                      type="text"
-                      class="form-control"
-                      placeholder="full name"
-                      aria-label="full name"
-                      max="30"
-                      pattern="\w{3,}\s\w{3,}(\s\w{3,})?"
-                      required
-                    />
-                    <p class="input_error_message full_name">
-                      first and last name should be seperated by a space
-                    </p>
-                    <label for="full_name_input">full name</label>
-                  </div>
-                  <div class="form-floating">
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="floatingInput_email"
-                      placeholder="name@example.com"
-                      required
-                    />
-                    <p class="input_error_message email">
-                      example : name@example.com
-                    </p>
-                    <label for="floatingInput_email">Email address</label>
+
+          <form id="sign_up" method="GET" action="/" class="modal-body">
+            <div
+              id="form_carousel"
+              class="carousel slide"
+              data-interval="false"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item form_part_1 active">
+                  <div>
+                    <div class="form-floating">
+                      <input
+                        id="full_name_input"
+                        type="text"
+                        class="form-control"
+                        placeholder="full name"
+                        aria-label="full name"
+                        max="30"
+                        pattern="\w{3,}\s\w{3,}(\s\w{3,})?"
+                        required
+                      />
+                      <p class="input_error_message full_name">
+                        first and last name should be seperated by a space
+                      </p>
+                      <label for="full_name_input">full name</label>
+                    </div>
+                    <div class="form-floating">
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="floatingInput_email"
+                        placeholder="name@example.com"
+                        required
+                      />
+                      <p class="input_error_message email">
+                        example : name@example.com
+                      </p>
+                      <label for="floatingInput_email">Email address</label>
+                    </div>
                   </div>
                 </div>
-                <div class="step_body num_2">
-                  <div class="form-floating">
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="Password"
-                      id="floatingPassword"
-                      min="6"
-                      max="15"
-                      pattern="\w*?\d*?"
-                      required
-                    />
-                    <p class="input_error_message password">
-                      don' use any special charcter 6 to 15
-                    </p>
-                    <label for="floatingPassword">Password</label>
-                  </div>
-                  <div class="form-floating">
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="floatingPassword_confirm"
-                      placeholder="Confirm Password"
-                      min="6"
-                      max="15"
-                      pattern="\w*?\d*?"
-                      required
-                    />
-                    <p class="input_error_message confirm_password">
-                      passwords dosen't match
-                    </p>
-                    <label for="floatingPassword_confirm"
-                      >Confirm Password</label
-                    >
-                  </div>
-                </div>
-                <div class="step_body num_3">
-                  <div class="col-12 form-floating">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inputAddress"
-                      placeholder="address optional"
-                      required
-                    />
-
-                    <label for="inputAddress" class="form-label"
-                      >address optional</label
-                    >
-                  </div>
-
-                  <div class="col-12 form-floating">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="inputAddress2"
-                      placeholder="Apartment, studio, or floor"
-                    />
-                    <label for="inputAddress2" class="form-label"
-                      >Apartment, studio, or floor</label
-                    >
-                  </div>
-                  <div class="row">
-                    <div class="col-5 form-floating">
-                      <input type="text" class="form-control" id="inputCity" />
-                      <label
-                        for="inputCity"
-                        class="form-label"
-                        placeholder="City"
-                        >City</label
+                <div class="carousel-item form_part_2">
+                  <div>
+                    <div class="form-floating">
+                      <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Password"
+                        id="floatingPassword"
+                        min="6"
+                        max="15"
+                        pattern="\w*?\d*?"
+                        autocomplete
+                        required
+                      />
+                      <p class="input_error_message password">
+                        don' use any special charcter 6 to 15
+                      </p>
+                      <label for="floatingPassword">Password</label>
+                    </div>
+                    <div class="form-floating">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="floatingPassword_confirm"
+                        placeholder="Confirm Password"
+                        min="6"
+                        max="15"
+                        pattern="\w*?\d*?"
+                        autocomplete
+                        required
+                      />
+                      <p class="input_error_message confirm_password">
+                        passwords dosen't match
+                      </p>
+                      <label for="floatingPassword_confirm"
+                        >Confirm Password</label
                       >
                     </div>
-                    <div class="col-4 form-floating">
-                      <select id="inputState" class="form-select">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                      </select>
-                      <label for="inputState" class="form-label">State</label>
+                  </div>
+                </div>
+                <div class="carousel-item form_part_3">
+                  <div>
+                    <div class="col-12 form-floating">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="inputAddress"
+                        placeholder="address optional"
+                        required
+                      />
+
+                      <label for="inputAddress" class="form-label"
+                        >address optional</label
+                      >
                     </div>
-                    <div class="col-3 form-floating">
-                      <input type="text" class="form-control" id="inputZip" />
-                      <label for="inputZip" class="form-label">Zip</label>
+
+                    <div class="col-12 form-floating">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="inputAddress2"
+                        placeholder="Apartment, studio, or floor"
+                      />
+                      <label for="inputAddress2" class="form-label"
+                        >Apartment, studio, or floor</label
+                      >
+                    </div>
+                    <div class="row">
+                      <div class="col-5 form-floating">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inputCity"
+                        />
+                        <label
+                          for="inputCity"
+                          class="form-label"
+                          placeholder="City"
+                          >City</label
+                        >
+                      </div>
+                      <div class="col-4 form-floating">
+                        <select id="inputState" class="form-select">
+                          <option selected>Choose...</option>
+                          <option>...</option>
+                        </select>
+                        <label for="inputState" class="form-label">State</label>
+                      </div>
+                      <div class="col-3 form-floating">
+                        <input type="text" class="form-control" id="inputZip" />
+                        <label for="inputZip" class="form-label">Zip</label>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="step_body num_4">
-                  <h1>you're all set to go</h1>
+                <div class="carousel-item form_part_4">
+                  <div>
+                    <h1>you're all set to go</h1>
+                  </div>
                 </div>
               </div>
-            </form>
-            <div class="form_btns">
               <button
+                class="carousel-control-prev btn btn-secondary"
                 type="button"
-                class="btn btn-secondary btn_close btn_prev"
                 data-bs-dismiss="modal"
               >
-                Close
+                close
+                <span class="visually-hidden">Previous</span>
               </button>
-              <button class="btn btn-primary btn_next">Next</button>
+              <button
+                class="carousel-control-next btn btn-primary"
+                type="button"
+                data-bs-target="#form_carousel"
+                data-bs-slide="next"
+                disabled
+              >
+                Next
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
-      <!-- sign_up_section end -->
     </div>
-    <div class="theme"></div>
+    <!-- sign_up_section end -->
     <script
       src="https://kit.fontawesome.com/a8e98769c0.js"
       crossorigin="anonymous"

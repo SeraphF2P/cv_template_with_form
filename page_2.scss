@@ -83,14 +83,13 @@ main {
       justify-content: center;
       align-items: center;
       margin-block: 3rem;
-      // gap: 1rem;
       h2 {
         padding: 1rem;
-        width: calc(19% - 0.5rem);
       }
       p {
         border-left: 2px solid black;
         padding: 0.5rem;
+        max-width: calc(768px - 30%);
       }
       &::before {
         content: "";
