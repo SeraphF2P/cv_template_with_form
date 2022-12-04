@@ -1,6 +1,7 @@
 @use "./globle_Modifier";
 @use "./sign_up";
 @use "./theme_1.scss";
+@use "../my_mixin" as m;
 // @use "./theme_2.scss" as theme_1;
 .background_image {
   object-fit: cover;
@@ -10,19 +11,23 @@
   top: 0;
   left: 0;
 }
+body {
+  @include m.d_flex_center;
+  width: 100%;
+  height: 100vh;
+}
 .log_in_section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  background-color: hsl(0, 0%, 100%, 0.1);
+  gap: 1.5rem;
+  background-color: hsl(0, 0%, 100%, 0.2);
   border-radius: 5px;
   box-shadow: theme_1.$shadow;
   width: 300px;
   height: 350px;
-  margin-inline: auto;
-  margin-top: 3rem;
-  padding: 1rem;
+  margin-bottom: 70px;
+  padding: 1.5rem;
   animation: fadeUp 2s forwards;
   opacity: 0;
   transform: translateY(-10px);
@@ -39,6 +44,7 @@
     overflow: hidden;
     z-index: 10;
     border-radius: 50%;
+    transition: 3s linear;
     background-color: theme_1.$primary;
     box-shadow: 6px 6px 10px -1px rgb(0 0 0 / 15%),
       -6px -6px 10px -1px rgb(255 255 255 / 70%);
@@ -56,10 +62,39 @@
     }
   }
   .auto_signup_option {
+    position: absolute;
     display: flex;
-    gap: 0.3rem;
-    .fa-brands {
-      font-size: 40px;
+    .left_side,
+    .right_side {
+      display: flex;
+      position: relative;
+      height: 160px;
+      width: 275px;
+      .fa-brands {
+        font-size: 40px;
+        width: 60px;
+        height: 60px;
+        background-color: hsl(0, 0%, 100%, 0.2);
+        box-shadow: 6px 6px 10px -1px rgb(0 0 0 / 15%),
+          -6px -6px 10px -1px rgb(255 255 255 / 70%);
+        border-radius: 50%;
+        padding: 10px;
+        backdrop-filter: blur(10px);
+        &:nth-child(2n + 1) {
+          align-self: center;
+        }
+      }
+    }
+    .right_side {
+      left: -34px;
+      top: -24px;
+      justify-content: end;
+      transform-origin: left;
+    }
+    .left_side {
+      top: -24px;
+      transform-origin: right;
+      right: -34px;
     }
   }
   form {
@@ -110,3 +145,133 @@ input:focus:invalid {
     transform: translateY(0);
   }
 }
+@media (max-width: 556px) {
+  .auto_signup_option {
+    .right_side {
+      flex-direction: column;
+      align-items: center;
+      left: 13px !important;
+      top: -24px !important;
+    }
+    .left_side {
+      flex-direction: column;
+      align-items: center;
+      justify-content: end;
+      right: 13px !important;
+      top: -24px !important;
+    }
+  }
+}
+
+// body.loding_page {
+//   .log_in_section {
+//     animation: fadeUp 2s forwards, folded_in 4s linear forwards;
+//     transform-origin: center;
+//     > * {
+//       &:not(.img_border, .auto_signup_option) {
+//         animation: diapear 1s linear forwards;
+//       }
+//     }
+//     .img_border {
+//       animation: bigger_img 4s forwards linear;
+//       .place_holder {
+//         animation: bigger_img 4s forwards linear;
+//       }
+//     }
+//   }
+//   .auto_signup_option {
+//     .right_side {
+//       height: 250px;
+//       left: -164px;
+//       top: -24px;
+//       justify-content: end;
+//       transform-origin: left;
+//       animation: circuler 4s linear forwards, width_in 4s linear forwards;
+//       .fa-brands {
+//         animation: circlur_still 4s linear forwards;
+//         &:nth-child(1) {
+//           align-self: end;
+//         }
+//         &:nth-child(2) {
+//           align-self: center;
+//         }
+//         &:nth-child(3) {
+//           align-self: flex-start;
+//         }
+//       }
+//     }
+//     .left_side {
+//       height: 250px;
+//       top: -24px;
+//       transform-origin: right;
+//       right: -164px;
+//       .fa-brands {
+//         animation: circlur_still 4s linear forwards;
+//         &:nth-child(1) {
+//           align-self: end;
+//         }
+//         &:nth-child(2) {
+//           align-self: center;
+//         }
+//         &:nth-child(3) {
+//           align-self: flex-start;
+//         }
+//       }
+//       animation: circuler 4s linear forwards, width_in 4s linear forwards;
+//     }
+//   }
+// }
+
+// @keyframes circuler {
+//   100% {
+//     transform: rotate(-360deg);
+//   }
+// }
+// @keyframes width_in {
+//   100% {
+//     width: 100px;
+//     height: 100px;
+//     top: 0px;
+//     // transform: translate(0px,0px);
+//   }
+// }
+
+// @keyframes circlur_still {
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }
+// @keyframes folded_in {
+
+//   100% {
+//     width: 100px;
+//     height: 100px;
+//     background: transparent;
+//     box-shadow: none;
+//     transform: translateY(-70px);
+//   }
+// }
+// @keyframes diapear {
+
+//   100% {
+//     opacity: 0;
+//     width: 100px;
+//     height: 100px;
+//     visibility: hidden;
+//     background-color: transparent;
+//   }
+// }
+// @keyframes bigger_img {
+//   0% {
+//     top: 0;
+//     position: absolute;
+//     width: 100px;
+//     height: 100px;
+//   }
+//   100% {
+//     width: 200px;
+//     height: 200px;
+//     position: absolute;
+//     top: 0px;
+//   }
+// }

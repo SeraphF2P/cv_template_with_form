@@ -1,19 +1,19 @@
-@mixin d-flex-center {
+@mixin d_flex_center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-@mixin d-flex-center-column {
+@mixin d_flex_center_column {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-@mixin d-grid-center {
+@mixin d_grid_center {
   display: grid;
   place-content: center;
 }
-@mixin d-grid-column {
+@mixin d_grid_column {
   display: grid;
   grid-auto-columns: repeat(auto-fit, 1fr);
 }

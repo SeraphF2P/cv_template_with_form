@@ -85,7 +85,7 @@ a {
   background-color: #866ee0;
   left: 97px;
   position: absolute;
-  transition: width 1s linear;
+  transition: width 1s linear 0.6s;
   transform-origin: left;
 }
 .sign_up_section .modal-dialog-centered .modal-content .progress_bar .step_line.num_2 {
@@ -158,19 +158,26 @@ a {
   left: 0;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
 .log_in_section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  background-color: hsla(0deg, 0%, 100%, 0.1);
+  gap: 1.5rem;
+  background-color: hsla(0deg, 0%, 100%, 0.2);
   border-radius: 5px;
   box-shadow: 0 0 1rem 3px rgba(0, 0, 0, 0.1), 0 0 1rem -3px rgba(0, 0, 0, 0.1);
   width: 300px;
   height: 350px;
-  margin-inline: auto;
-  margin-top: 3rem;
-  padding: 1rem;
+  margin-bottom: 70px;
+  padding: 1.5rem;
   -webkit-animation: fadeUp 2s forwards;
           animation: fadeUp 2s forwards;
   opacity: 0;
@@ -188,6 +195,7 @@ a {
   overflow: hidden;
   z-index: 10;
   border-radius: 50%;
+  transition: 3s linear;
   background-color: #ece9fe;
   box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 }
@@ -205,11 +213,42 @@ a {
   width: 100px;
 }
 .log_in_section .auto_signup_option {
+  position: absolute;
   display: flex;
-  gap: 0.3rem;
 }
-.log_in_section .auto_signup_option .fa-brands {
+.log_in_section .auto_signup_option .left_side,
+.log_in_section .auto_signup_option .right_side {
+  display: flex;
+  position: relative;
+  height: 160px;
+  width: 275px;
+}
+.log_in_section .auto_signup_option .left_side .fa-brands,
+.log_in_section .auto_signup_option .right_side .fa-brands {
   font-size: 40px;
+  width: 60px;
+  height: 60px;
+  background-color: hsla(0deg, 0%, 100%, 0.2);
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  padding: 10px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.log_in_section .auto_signup_option .left_side .fa-brands:nth-child(2n+1),
+.log_in_section .auto_signup_option .right_side .fa-brands:nth-child(2n+1) {
+  align-self: center;
+}
+.log_in_section .auto_signup_option .right_side {
+  left: -34px;
+  top: -24px;
+  justify-content: end;
+  transform-origin: left;
+}
+.log_in_section .auto_signup_option .left_side {
+  top: -24px;
+  transform-origin: right;
+  right: -34px;
 }
 .log_in_section form {
   display: flex;
@@ -265,5 +304,20 @@ input:focus:invalid + p.input_error_message {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@media (max-width: 556px) {
+  .auto_signup_option .right_side {
+    flex-direction: column;
+    align-items: center;
+    left: 13px !important;
+    top: -24px !important;
+  }
+  .auto_signup_option .left_side {
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    right: 13px !important;
+    top: -24px !important;
   }
 }/*# sourceMappingURL=page_1.css.map */

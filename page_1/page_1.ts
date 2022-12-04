@@ -151,8 +151,10 @@ function collect_user_info(){
     } 
     users.push(userInfo);
 }
-
-
+const body_1 = document.querySelector('body')
+function loding_page(){
+    body_1?.classList.add("loding_page");
+}
 
 
 
@@ -172,5 +174,6 @@ submit_log_btn?.addEventListener('click', (e) => {
        if ((users[i].name == user_name_email.value || users[i].email == user_name_email.value) 
        && (users[i].password == Password_log_in_password.value)) {
         log_in_form?.submit()
+    
     }
 }})

@@ -63,14 +63,13 @@
           background-color: theme1.$fifth;
           left: 97px;
           position: absolute;
-          transition: width 1s linear;
+          transition: width 1s linear .6s;
           transform-origin: left;
           &.num_2 {
             left: 166px;
           }
           &.checked {
           width: 36px;
-           
           }
         }
       }

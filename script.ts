@@ -9,8 +9,8 @@ function create_shape (){
     shape.classList.add(shapes[random]);
     bg_animation?.append(shape);
     shapesCollection.push(shape);
-    shape.style.translate =  `(${(Math.floor(window.innerWidth+ 150) * Math.random() + 150)}px,
-    ${Math.floor(window.innerHeight * Math.random() + 300)}px)`
+    shape.style.translate =  `(${((window.innerWidth + 150) * Math.random() - 150)}px,
+    ${Math.floor((window.innerHeight + 3000 )* Math.random() + 70)}px)`
     shape.style.rotate =  `rotate(${ 180 * Math.random()}deg)`
     shape.style.scale =  `${ 0.5 + (0.5 * Math.random())}`
 }
@@ -26,11 +26,13 @@ function moving(){
         rotate(${180 * Math.random()}deg)`;
     })
 }
-for (let i = 0; i < 40; i++) {
-    create_shape()
-}
+
+
 moving()
 window.onload = () =>{
+  for (let i = 0; i < 50; i++) {
+    create_shape()
+}
     moving()
     setInterval(()=>{
         moving()

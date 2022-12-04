@@ -22,13 +22,51 @@ body {
   background-position: 0 0, 10px 10px;
 }
 
+// header {
+//   width: min(768px, 100%);
+//   margin-inline: auto;
+//   nav {
+//     transition: translate 0.5s linear;
+//     position: fixed;
+//     top: 0;
+//     width: min(768px, 100%);
+//     height: 70px;
+//     z-index: 10;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background: hsl(253, 65%, 65%, 0.6);
+//     box-shadow: light.$shadow;
+//     .humburger_menu_btn {
+//       @include my_mixin.btn;
+//       display: none;
+//     }
+//     ul {
+//       display: flex;
+//       align-items: center;
+//       gap: 1.5rem;
+//       font-size: 1.5rem;
+//       padding-top: 10px;
+//       li {
+//         a {
+//           transition: font-size 0.2s linear, color 0.2s linear;
+//           padding: 8px 0px;
+//           line-break: none;
+//           &:hover {
+//             color: light.$fourth;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 header {
   width: min(768px, 100%);
   margin-inline: auto;
   nav {
     transition: translate 0.5s linear;
     position: fixed;
-    top: 0;
+    bottom: 0;
     width: min(768px, 100%);
     height: 70px;
     z-index: 10;
@@ -47,11 +85,14 @@ header {
       gap: 1.5rem;
       font-size: 1.5rem;
       padding-top: 10px;
-      a {
-        transition: font-size 0.2s linear, color 0.2s linear;
-        line-break: none;
-        &:hover {
-          color: light.$fourth;
+      li {
+        a {
+          transition: font-size 0.2s linear, color 0.2s linear;
+          padding: 8px 0px;
+          line-break: none;
+          &:hover {
+            color: light.$fourth;
+          }
         }
       }
     }
@@ -69,27 +110,29 @@ header {
 main {
   width: min(768px, 100%);
   margin-inline: auto;
+  margin-top: 70px;
   background-color: hsl(0, 0%, 100%, 0.6);
   box-shadow: light.$shadow;
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   section {
-    padding: 1rem;
-    border-inline: 1px solid transparent;
+    padding: 2rem;
     min-height: 360px;
     + section:nth-child(2n) {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-block: 3rem;
+      margin-top: 3rem;
       h2 {
         padding: 1rem;
+        width: 22%;
       }
       p {
         border-left: 2px solid black;
         padding: 0.5rem;
-        max-width: calc(768px - 30%);
+        padding-right: 1rem;
+        width: 78%;
       }
       &::before {
         content: "";
@@ -111,7 +154,6 @@ main {
   .section_1 {
     display: flex;
     align-items: center;
-    margin-top: 70px;
     font-size: 3rem;
     .img_border {
       position: relative;
@@ -151,7 +193,7 @@ main {
       }
     }
   }
-  .section_3 {
+  &:nth-child(2n + 1) {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -159,10 +201,11 @@ main {
     h2 {
       text-align: center;
     }
-    .skills {
+    .gallary {
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
+      margin-top: 2rem;
       gap: 2rem;
       .skill {
         position: relative;
@@ -176,6 +219,11 @@ main {
         background-color: light.$secondary;
         box-shadow: 6px 6px 10px -1px rgb(0, 0, 0, 0.15),
           -6px -6px 10px -1px rgb(255, 255, 255, 0.7);
+      }
+      .my_card {
+        background-color: light.$primary;
+        width: 200px;
+        aspect-ratio: 16/9;
       }
     }
   }
@@ -208,7 +256,7 @@ footer {
   background-color: light.$secondary;
   outline: 2px solid light.$primary;
   justify-content: flex-end;
-  transition: width 1s linear, translate 0.5s linear;
+  transition: width 0.9s linear, translate 0.5s linear;
   transform-origin: right;
   &.checked {
     width: 160px;
@@ -225,7 +273,7 @@ footer {
     aspect-ratio: 1;
     border-radius: 50%;
     background-color: light.$primary;
-    transition: transform 1s linear;
+    transition: transform 0.9s linear;
     &.checked {
       transform: rotate(225deg);
     }
@@ -242,13 +290,13 @@ footer {
     height: 30px;
     margin-block: auto;
     &:nth-child(1) {
-      transition: transform 1.1s linear;
+      transition: transform 0.9s linear;
     }
     &:nth-child(2) {
-      transition: transform 0.8s linear;
+      transition: transform 0.6s linear 0.3s;
     }
     &:nth-child(3) {
-      transition: transform 0.4s linear;
+      transition: transform 0.3s linear 0.6s;
     }
     &:nth-child(1) {
       transform: translateX(95px);
@@ -273,70 +321,74 @@ footer {
   .section_1 {
     flex-direction: column;
   }
-  nav {
-    button.humburger_menu_btn {
-      display: block;
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      width: 54px;
-      padding: 5px;
-      aspect-ratio: 1;
-      svg {
-        width: 100%;
-        aspect-ratio: 1;
-      }
-    }
-  }
-  .sections_menu {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 147px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 1s linear;
-    li {
-      background: light.$primary;
-      width: 100px;
-      padding: 5px;
-      text-align: center;
-      position: relative;
-      right: -110px;
-      &:nth-child(1) {
-        transition: transform 0.2s linear;
-      }
-      &:nth-child(2) {
-        transition: transform 0.2s linear 0.2s;
-      }
-      &:nth-child(3) {
-        transition: transform 0.2s linear 0.4s;
-      }
-      &:nth-child(4) {
-        transition: transform 0.2s linear 0.6s;
-      }
-      &:nth-child(5) {
-        transition: transform 0.2s linear 0.8s;
-      }
-      &.show {
-        transform: translateX(-134px);
-      }
-      &::after {
-        content: "";
-        position: absolute;
-        width: 5px;
-        height: 100%;
-        top: 0;
-        right: -10px;
-        background: light.$primary;
-      }
-    }
-  }
+  // nav {
+  //   button.humburger_menu_btn {
+  //     display: block;
+  //     position: absolute;
+  //     top: 0.5rem;
+  //     right: 0.5rem;
+  //     width: 54px;
+  //     padding: 5px;
+  //     aspect-ratio: 1;
+  //     svg {
+  //       width: 100%;
+  //       aspect-ratio: 1;
+  //     }
+  //   }
+  // }
+  // .sections_menu {
+  //   position: absolute;
+  //   top: 70px;
+  //   right: 0;
+  //   width: 147px;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   transition: transform 1s linear;
+  //   li {
+  //     background: light.$primary;
+  //     width: 90px;
+  //     padding: 5px;
+  //     text-align: center;
+  //     position: relative;
+  //     right: -110px;
+  //     &:nth-child(1) {
+  //       transition: transform 0.2s linear;
+  //     }
+  //     &:nth-child(2) {
+  //       transition: transform 0.2s linear 0.2s;
+  //     }
+  //     &:nth-child(3) {
+  //       transition: transform 0.2s linear 0.4s;
+  //     }
+  //     &:nth-child(4) {
+  //       transition: transform 0.2s linear 0.6s;
+  //     }
+  //     &:nth-child(5) {
+  //       transition: transform 0.2s linear 0.8s;
+  //     }
+  //     &.show {
+  //       transform: translateX(-134px);
+  //     }
+  //     &::after {
+  //       content: "";
+  //       position: absolute;
+  //       width: 5px;
+  //       height: 100%;
+  //       top: 0;
+  //       right: -10px;
+  //       background: light.$primary;
+  //     }
+  //     a {
+  //       width: 100px;
+  //     }
+  //   }
+  // }
+
   section {
     + section:nth-child(2n) {
       h2 {
-        writing-mode: vertical-lr;
+        writing-mode: vertical-rl;
       }
     }
   }
@@ -345,7 +397,6 @@ footer {
     left: 1rem;
     flex-direction: row-reverse;
     justify-content: flex-end;
-    // transition: translate 0.5s linear;
     .theme_list_item {
       width: 30px;
       height: 30px;

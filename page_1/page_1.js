@@ -127,6 +127,10 @@ function collect_user_info() {
     };
     users.push(userInfo);
 }
+const body_1 = document.querySelector('body');
+function loding_page() {
+    body_1 === null || body_1 === void 0 ? void 0 : body_1.classList.add("loding_page");
+}
 const log_in_section = document.querySelector('.log_in_section');
 const user_name_email = document.getElementById('log_in_user_name_email');
 const Password_log_in_password = document.getElementById('Password_log_in_password');
