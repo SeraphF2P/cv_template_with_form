@@ -1,7 +1,7 @@
-$primary: #444cf7;
-$primary_gradiant: #767cf9;
-$secondary: #4df744;
-$third: #ff1111;
+$primary: #4ef745;
+$primary_gradiant: hsl(117, 92%, 72%, 0.8);
+$secondary: #ff1111;
+$third: #444cf7;
 $fourth: #ffca3c;
 $fifth: #fd6036;
 $soft-gray: #e3e3e3;
@@ -12,95 +12,162 @@ $shadow: 0 0 1rem 3px rgb(0, 0, 0, 0.1), 0 0 1rem -3px rgb(0, 0, 0, 0.1);
 
 body {
   &.color_mode {
-    background-image: radial-gradient($primary 0.5px, transparent 0.5px),
-      radial-gradient($primary 0.5px, hsl(226, 100%, 82%) 0.5px);
-    color: $black;
+    .bg_animation {
+      background-image: radial-gradient($secondary 0.5px, transparent 0.5px),
+        radial-gradient($secondary 0.5px, hsl(117, 92%, 62%, 0.5) 0.5px) !important;
+      .shape {
+        &.empty_circle {
+          border: 5px solid $fifth;
+        }
+        &.empty_square {
+          border: 5px solid $third;
+        }
+        &.triangle {
+          background-color: $fourth;
+        }
+        &.pentagon {
+          background-color: $primary;
+        }
+      }
+    }
     header {
       nav {
-        background: $primary;
-        .humburger_menu_btn {
-          svg {
-            fill: $black;
-          }
-        }
         li {
-          background: $primary;
           &::after {
             background: $primary;
           }
           a {
             color: $black;
+            &:hover {
+              font-size: 1.1rem;
+              color: $secondary;
+            }
           }
         }
       }
     }
+    header.change {
+      .nav_bar {
+        background: linear-gradient(
+          to top right,
+          $primary_gradiant 0%,
+          $primary 50%,
+          $primary_gradiant 100%
+        );
+        outline: 6px solid $black;
+        ul {
+          li {
+            &.active {
+              a {
+                .icon {
+                  color: $black;
+                }
+                .text {
+                  opacity: 1;
+                  transform: translateY(10px);
+                }
+                .circle {
+                  transition: 0.5s;
+                  transition-delay: 0.5s;
+                  transform: translateY(-37px) scale(1);
+                }
+              }
+            }
+            a {
+              .icon {
+                color: $black;
+              }
+              .text {
+                color: $black;
+              }
+              .circle {
+                background: transparent;
+                border: 1.8px solid $black;
+              }
+            }
+          }
+        }
+        .indicator {
+          background: $primary 100%;
+          border: 6px solid $black;
+        }
+      }
+    }
     main {
-      background-color: hsl(0, 0%, 90%, 0.1);
+      background-color: hsla(0deg, 100%, 100%, 0.1);
       section {
+        &:not(:first-child)::after {
+          content: url("./svg/decoretion/section-seperetor_colored.svg") !important;
+        }
+        h2 {
+          color: $black;
+        }
         &:nth-child(2n) {
+          h2 {
+            color: $black;
+          }
           p {
             border-left: 2px solid $black;
           }
           &::before {
             background: $primary;
+            opacity: 1;
           }
         }
       }
       .section_1 {
         color: $black;
+        background-color: $primary;
         .img_border {
           background: $primary;
+          opacity: 0.6;
           .place_holder {
             fill: $black;
           }
         }
         p {
-          border-right: 2px solid $black;
+          border-right: 2px solid white;
         }
       }
       .section_3 {
         .skill {
-          color: $white;
-          box-shadow: none;
-          background-color: hsl(0, 100%, 100%, 0.2);
+          color: $black;
+          background-color: hsl(0, 100%, 100%, 0.2) !important;
           svg {
             stroke: url(#progress_bar_color_mode);
           }
         }
       }
+      .section_5 {
+        .my_certificate {
+          .my_card {
+            background-color: $primary !important;
+          }
+        }
+      }
     }
     footer {
+      &:after {
+        content: url("./svg/wavesOpacity_color_mode.svg") !important;
+      }
     }
     .theme_list {
       background-color: $primary_gradiant;
-      outline: 2px solid $primary;
+      outline: 2px solid $black;
       .theme_list_item,
       .theme_list_btn {
         background-color: $primary;
-        outline: 1px solid $primary;
+        outline: 1px solid $black;
         svg {
-          fill: white;
+          fill: $black;
         }
       }
       .theme_list_item {
         &.active {
           svg {
             fill: yellow;
+            filter: blur(0.1px);
           }
-        }
-      }
-    }
-    .shape {
-      &.empty_circle {
-        border: 5px solid $secondary;
-      }
-      &.empty_square {
-        border: 5px solid $third;
-      }
-      &.triangle {
-        background-color: $fourth;
-        &.pentagon {
-          background-color: $fifth;
         }
       }
     }

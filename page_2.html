@@ -14,38 +14,65 @@
 
     <title>Document</title>
   </head>
-  <body class="light_mode">
+  <body>
     <div class="bg_animation"></div>
     <header>
       <nav class="nav_bar">
-        <button class="humburger_menu_btn" aria-controls="sections_menu">
-          <span class="v_hidden">Menu</span>
-          <svg
-            class="humburger_menu_icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="#4828bd"
-            width="48"
-            height="48"
-            aria-hidden="true"
-          >
-            <path d="M4 6h16v2H4zm4 5h12v2H8zm5 5h7v2h-7z"></path>
-          </svg>
-        </button>
-        <ul class="sections_menu" id="sections_menu">
-          <li><a href="#home">home</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#About_me">About me</a></li>
-          <li><a href="#exp">Experiance</a></li>
-          <li><a href="#contact">Let's talk</a></li>
-          <li><a href="#certificates">certificates</a></li>
-          <li><a href="#asd">asd</a></li>
+        <ul class="sections_menu">
+          <li class="list active">
+            <a href="#About_me" class="num_1">
+              <span class="icon">
+                <ion-icon name="person-outline"></ion-icon>
+              </span>
+              <span class="text">About me</span>
+              <span class="circle"></span>
+            </a>
+          </li>
+
+          <li class="list">
+            <a href="#skills" class="num_2">
+              <span class="icon">
+                <ion-icon name="ribbon-outline"></ion-icon>
+              </span>
+              <span class="text">Skills</span>
+              <span class="circle"></span>
+            </a>
+          </li>
+
+          <li class="list">
+            <a href="#exp" class="num_3">
+              <span class="icon">
+                <ion-icon name="sparkles-outline"></ion-icon>
+              </span>
+              <span class="text">Experiance</span>
+              <span class="circle"></span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#certificates" class="num_4">
+              <span class="icon">
+                <ion-icon name="school-outline"></ion-icon>
+              </span>
+              <span class="text"> Certificates</span>
+              <span class="circle"></span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#contact" class="num_5">
+              <span class="icon">
+                <ion-icon name="chatbubble-outline"></ion-icon>
+              </span>
+              <span class="text">Let's talk </span>
+              <span class="circle"></span>
+            </a>
+          </li>
+          <div class="indicator"></div>
         </ul>
       </nav>
     </header>
 
     <main>
-      <section class="section_1" id="home">
+      <section class="section_1" id="About_me">
         <div class="img_border">
           <svg
             class="place_holder"
@@ -66,7 +93,7 @@
           <p class="text_effect"></p>
         </div>
       </section>
-      <section class="section_2" id="About_me">
+      <section class="section_2">
         <h2>About me</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
@@ -79,7 +106,7 @@
       </section>
       <section class="section_3" id="skills">
         <h2>Skills</h2>
-        <div class="skills gallary">
+        <div class="skills">
           <div class="skill skill_1">
             <div class="inner">HTML</div>
             <div class="numb">0%</div>
@@ -181,7 +208,7 @@
       </section>
       <section class="section_5" id="certificates">
         <h2>certificates</h2>
-        <div class="my_certificates gallary">
+        <div class="my_certificate">
           <div class="my_card"></div>
           <div class="my_card"></div>
           <div class="my_card"></div>
@@ -190,9 +217,9 @@
           <div class="my_card"></div>
         </div>
       </section>
-      <section class="section_6"></section>
+      <section class="section_6" id="contact"></section>
     </main>
-    <footer id="contact">
+    <footer>
       <ul>
         <li>
           <a href="">
@@ -317,6 +344,14 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
     <script src="./script.js"></script>
   </body>

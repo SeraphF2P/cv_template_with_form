@@ -1,5 +1,7 @@
 
-const bg_animation = document.querySelector('.bg_animation');
+const bg_animation = document.querySelector('.bg_animation') as HTMLElement;
+const main = document.querySelector('main') as HTMLElement;;
+const body = document.querySelector('body');
 const shapes = ['triangle','pentagon','empty_circle','empty_square']
 let shapesCollection: HTMLDivElement[] = [];
 function create_shape (){
@@ -8,35 +10,37 @@ function create_shape (){
     shape.classList.add('shape');
     shape.classList.add(shapes[random]);
     bg_animation?.append(shape);
+    shape.style.transform =  `translate(${((bg_animation?.offsetWidth!) * Math.random() - 150)}px,${(bg_animation?.offsetHeight!) * Math.random() - 150}px)
+    rotate(${ 180 * Math.random()}deg)
+    scale(${ 0.5 + (0.5 * Math.random())})
+    `
     shapesCollection.push(shape);
-    shape.style.translate =  `(${((window.innerWidth + 150) * Math.random() - 150)}px,
-    ${Math.floor((window.innerHeight + 3000 )* Math.random() + 70)}px)`
-    shape.style.rotate =  `rotate(${ 180 * Math.random()}deg)`
-    shape.style.scale =  `${ 0.5 + (0.5 * Math.random())}`
 }
-let Xaxis = window.innerWidth;
-let Yaxis = window.innerHeight;
+let Xaxis = bg_animation?.offsetWidth;
+let Yaxis = bg_animation?.offsetHeight;
 
 function moving(){
+  
     shapesCollection.forEach(shape =>{
         shape.style.transform =  `
         translate(
-        ${(Xaxis* Math.random() - 150)}px
-        ,${Yaxis* Math.random()}px)
-        rotate(${180 * Math.random()}deg)`;
+        ${((Xaxis! - 150) * Math.random() )}px
+        ,${(Yaxis!  - 150) * Math.random()}px)
+        rotate(${360 * Math.random()}deg)`;
     })
 }
 
-
-moving()
 window.onload = () =>{
   for (let i = 0; i < 50; i++) {
     create_shape()
 }
+shapesCollection.forEach(shape =>{
+  shape.style.transition = 'transform 90s linear, rotate 90s linear';
+})
     moving()
     setInterval(()=>{
         moving()
-    },60000)
+    },80000)
 }
 
 const skills : HTMLDivElement[] = Array.from(document.querySelectorAll('.skill'));
@@ -68,7 +72,7 @@ setInterval(()=>{
 }
 let first_time_scroll = true;
 function progress (){
-    if(scrollY > 880 && scrollY < 1280 && first_time_scroll){
+    
         progress_circle_1.style.strokeDashoffset ='0';
         progress_circle_2.style.strokeDashoffset ='100';
         progress_circle_3.style.strokeDashoffset ='120';
@@ -82,29 +86,39 @@ function progress (){
         calc_persent(per_4,272);
         calc_persent(per_5,212);
         calc_persent(per_6,72);
-        first_time_scroll = false
-    }
- 
+      
 }
 let nav_is_visible = true;
-const nav = document.querySelector('.nav_bar') as HTMLElement;
-window.onscroll= ()=>{
+let footer_is_hidden = true;
+const header = document.querySelector('header') as HTMLElement;
+const footer = document.querySelector('footer') as HTMLElement;
+main.onscroll = ()=>{
+  if(main.scrollTop > 1178 && main.scrollTop < 1800 && first_time_scroll){
     progress()  
-    if(nav_is_visible){
-      nav.style.translate = '0px -70px';
-      nav_is_visible = !nav_is_visible;
-    if(window.innerWidth < 768){
-      theme_list.style.translate = '0px -70px';
-    }
-
-    }else if(nav_is_visible == false ){
-      setTimeout(()=>{
-        nav.style.translate = '0px 0px';
-        theme_list.style.translate = '0px 0px';
-      },500);
-      nav_is_visible = !nav_is_visible;
-    }
+    first_time_scroll = false
   }
+  if(nav_is_visible && main.scrollTop > 0){
+    header.classList.add('change');
+    nav_is_visible = !nav_is_visible;
+  }
+   if(nav_is_visible == false  && main.scrollTop < 70){
+    header.classList.remove('change')
+    nav_is_visible = !nav_is_visible;
+  }
+  if(((main.scrollHeight - main.scrollTop) <= window.innerHeight + 20) && footer_is_hidden){
+    footer.style.transform = 'translateY(0)';
+    footer.style.display ='flex';
+    main.style.overflowY = 'hidden';
+    footer_is_hidden = false;
+  }
+  if(((main.scrollHeight - main.scrollTop) > window.innerHeight + 20) && footer_is_hidden == false){
+    footer.style.transform = 'translateY(200px)';
+    footer.style.display ='none';
+    main.style.overflowY = 'visible';
+    footer_is_hidden =  true;
+  }
+  }
+  
   
     const textDisplay = document.querySelector('.text_effect') as HTMLElement;
     const phrases = ['Hello World !!!', 'junior web-developer', 'love to code']
@@ -155,21 +169,6 @@ window.onscroll= ()=>{
     
     loop()
 
-
-    const humburger_menu_btn = document.querySelector('.humburger_menu_btn');
-    const humburger_menu_icon = humburger_menu_btn?.querySelector('svg');
-    const sections_menu = document.querySelector('.sections_menu') as HTMLDivElement;
-    const sections_list_items = Array.from(sections_menu.querySelectorAll('li'));
-    humburger_menu_btn?.addEventListener('click', () =>{
-        sections_list_items.forEach(li=> li.classList.toggle('show'))
-        humburger_menu_icon?.toggleAttribute('aria-hidden',false)
-    })
-    sections_list_items.forEach(li => {
-        li.addEventListener('click', () => {
-            sections_list_items.forEach(li=> li.classList.remove('show'))
-        });
-    })
-
     const theme_list_btn = document.querySelector('.theme_list_btn');
     const theme_list = document.querySelector('.theme_list') as HTMLButtonElement;
     const theme_list_items = Array.from(document.querySelectorAll('.theme_list_item'));
@@ -181,7 +180,7 @@ window.onscroll= ()=>{
     const dark_mode_btn = theme_list?.querySelector('.dark_mode') as HTMLButtonElement;
     const light_mode_btn = theme_list?.querySelector('.light_mode') as HTMLButtonElement;
     const color_mode_btn = theme_list?.querySelector('.color_mode') as HTMLButtonElement;
-    const body = document.querySelector('body');
+
 
 function activate_Theme (this: any){
   let theme_name = this.getAttribute('class').split(' ')[1];
@@ -227,3 +226,16 @@ theme_list.addEventListener('dragover',drop_it)
 theme_list.addEventListener('dragover',(e)=>{
   e.preventDefault()
 })
+
+
+
+const list = document.querySelectorAll('.list');
+
+function activeLink(this: any) {
+    list.forEach((item) =>
+    item.classList.remove('active'));
+    this.classList.add('active');
+}
+
+list.forEach((item) =>
+item.addEventListener('click',activeLink));

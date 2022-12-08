@@ -124,6 +124,7 @@ body {
 
 .btn-primary {
   background: linear-gradient(to top left, theme_1.$fifth_2, theme_1.$fifth);
+  opacity: 1 !important;
   border: none;
   &:hover {
     background: linear-gradient(to top right, theme_1.$fifth_2, theme_1.$fifth);
@@ -163,115 +164,4 @@ input:focus:invalid {
   }
 }
 
-// body.loding_page {
-//   .log_in_section {
-//     animation: fadeUp 2s forwards, folded_in 4s linear forwards;
-//     transform-origin: center;
-//     > * {
-//       &:not(.img_border, .auto_signup_option) {
-//         animation: diapear 1s linear forwards;
-//       }
-//     }
-//     .img_border {
-//       animation: bigger_img 4s forwards linear;
-//       .place_holder {
-//         animation: bigger_img 4s forwards linear;
-//       }
-//     }
-//   }
-//   .auto_signup_option {
-//     .right_side {
-//       height: 250px;
-//       left: -164px;
-//       top: -24px;
-//       justify-content: end;
-//       transform-origin: left;
-//       animation: circuler 4s linear forwards, width_in 4s linear forwards;
-//       .fa-brands {
-//         animation: circlur_still 4s linear forwards;
-//         &:nth-child(1) {
-//           align-self: end;
-//         }
-//         &:nth-child(2) {
-//           align-self: center;
-//         }
-//         &:nth-child(3) {
-//           align-self: flex-start;
-//         }
-//       }
-//     }
-//     .left_side {
-//       height: 250px;
-//       top: -24px;
-//       transform-origin: right;
-//       right: -164px;
-//       .fa-brands {
-//         animation: circlur_still 4s linear forwards;
-//         &:nth-child(1) {
-//           align-self: end;
-//         }
-//         &:nth-child(2) {
-//           align-self: center;
-//         }
-//         &:nth-child(3) {
-//           align-self: flex-start;
-//         }
-//       }
-//       animation: circuler 4s linear forwards, width_in 4s linear forwards;
-//     }
-//   }
-// }
 
-// @keyframes circuler {
-//   100% {
-//     transform: rotate(-360deg);
-//   }
-// }
-// @keyframes width_in {
-//   100% {
-//     width: 100px;
-//     height: 100px;
-//     top: 0px;
-//     // transform: translate(0px,0px);
-//   }
-// }
-
-// @keyframes circlur_still {
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
-// @keyframes folded_in {
-
-//   100% {
-//     width: 100px;
-//     height: 100px;
-//     background: transparent;
-//     box-shadow: none;
-//     transform: translateY(-70px);
-//   }
-// }
-// @keyframes diapear {
-
-//   100% {
-//     opacity: 0;
-//     width: 100px;
-//     height: 100px;
-//     visibility: hidden;
-//     background-color: transparent;
-//   }
-// }
-// @keyframes bigger_img {
-//   0% {
-//     top: 0;
-//     position: absolute;
-//     width: 100px;
-//     height: 100px;
-//   }
-//   100% {
-//     width: 200px;
-//     height: 200px;
-//     position: absolute;
-//     top: 0px;
-//   }
-// }

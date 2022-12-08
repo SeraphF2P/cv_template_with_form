@@ -275,6 +275,7 @@ body {
 
 .btn-primary {
   background: linear-gradient(to top left, #4828bd, #866ee0);
+  opacity: 1 !important;
   border: none;
 }
 .btn-primary:hover {
