@@ -187,7 +187,7 @@ function drag_it() {
         Y_d = e.pageY;
         if (choosen != null) {
             choosen.style.right = `calc(100% - ${X_d + 25}px)`;
-            choosen.style.marginTop = `calc(${Y_d - 125}px)`;
+            choosen.style.top = `calc(${Y_d - 25}px)`;
         }
     };
 }

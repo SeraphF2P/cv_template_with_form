@@ -766,13 +766,19 @@ footer:after {
 }
 @media (max-width: 576px) {
   nav {
-    scale: 0.8;
+    scale: 0.9;
+    font-size: 16px;
   }
   nav ul {
     padding-left: 0;
   }
   .theme_list {
     top: 60px;
+  }
+}
+@media (max-width: 400px) {
+  nav {
+    scale: 0.9;
   }
 }
 @-webkit-keyframes change_nav {

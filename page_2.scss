@@ -542,7 +542,8 @@ footer {
 }
 @media (max-width: 576px) {
   nav {
-    scale: 0.8;
+    scale: 0.9;
+    font-size: 16px;
     ul {
       padding-left: 0;
     }
@@ -551,6 +552,12 @@ footer {
     top: 60px;
   }
 }
+@media (max-width: 400px) {
+  nav {
+    scale: 0.9;
+  }
+}
+
 @keyframes change_nav {
   30% {
     top: -70px;
