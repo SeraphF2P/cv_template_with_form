@@ -196,7 +196,7 @@ body {
   z-index: 10;
   border-radius: 50%;
   transition: 3s linear;
-  background-color: #ece9fe;
+  background-color: #866ee0;
   box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 }
 .log_in_section .img_border .place_holder,
@@ -211,6 +211,7 @@ body {
 }
 .log_in_section .img_border .place_holder {
   width: 100px;
+  fill: #4828bd;
 }
 .log_in_section .auto_signup_option {
   position: absolute;
